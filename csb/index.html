@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://smarsgroup.github.io/geoepic-docs/csb/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Crop Sequence Boundaries - Geo-Epic</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Crop Sequence Boundaries";
+        var mkdocs_page_input_path = "csb.md";
+        var mkdocs_page_url = "/geoepic-docs/csb/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Geo-Epic
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../epic/">EPIC Model</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Crop Sequence Boundaries</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#obtaining-the-csb-dataset">Obtaining the CSB dataset</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#clipping-the-csb-file-to-your-area-of-interest">Clipping the CSB file to your Area of Interest</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Weather/">Weather Module</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Soil/">Soil Module</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../OPC/">Crop Management</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../runexp/">Running an Experiment</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../opt/">Model Calibration</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../api/">API</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Geo-Epic</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Crop Sequence Boundaries</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/smarsGroup/geoepic-docs/edit/master/docs/csb.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="crop-sequence-boundaries">Crop Sequence Boundaries</h1>
+<p>For effective simulations using the <strong>EPIC</strong> model, it is essential to have land units that are characterized by uniform soil properties and consistent management practices. One way to achieve this for the USA is by utilizing the Crop Sequence Boundaries (CSB) dataset. The CSB dataset is derived by analyzing annual variations in the USDA's Cropland Data Layer (CDL). The CSB method involves identifying and demarcating the boundaries of agricultural fields that have maintained consistent crop rotation sequence over several years. </p>
+<p><img alt="CSb" src="../assets/csb.png" /></p>
+<p><a href="https://www.nass.usda.gov/Education_and_Outreach/Reports,_Presentations_and_Conferences/reports/conferences/ICAS-2023/Crop%20Sequence%20Boundaries%20%28CSB%29%20Delineated%20Fields%20Using%20Remotely%20Sensed%20Crop%20Rotations.pdf">Crop Sequence Boundaries (CSB): Delineated Fields Using Remotely Sensed Crop Rotations</a>. 
+USDA-NASS &amp; Global Conservation Institute.
+Hunt, K. A., Abernethy, J., Beeson, P., Bowman, M., Wallander, S., &amp; Williams, R.</p>
+<h3 id="obtaining-the-csb-dataset">Obtaining the CSB dataset</h3>
+<p>Visit the following URL: <a href="https://www.nass.usda.gov/Research_and_Science/Crop-Sequence-Boundaries/index.php">https://www.nass.usda.gov/Research_and_Science/Crop-Sequence-Boundaries/index.php</a> to download the 'Crop Sequence Boundaries 2016-2023' dataset. After downloading, extract the dataset, which includes crop-field shapes for the entire USA. You can then use crop_csb tool to clip it to fit your Area of Interest (AOI). If your study focuses on Maryland, clip the shapefile for Maryland and save it.</p>
+<h3 id="clipping-the-csb-file-to-your-area-of-interest">Clipping the CSB file to your Area of Interest</h3>
+<p>Geo-Epic comes with a command-line tool to filter and clip the CSB file for your specific region of interest.
+The tool can be invoked with various options to specify the region:</p>
+<pre><code class="language-bash"># Help with the options provided by the tool
+&gt;&gt; geo-epic crop_csb -h
+
+# Cropping the csb to get the shapefile for Maryland:
+&gt;&gt; geo-epic crop_csb path/to/input.gdb output.shp --state_name &quot;Maryland&quot;
+
+# Using the state FIPS code (24) for Maryland:
+&gt;&gt; geo-epic crop_csb path/to/input.gdb output.shp --state_fips &quot;24&quot;
+
+# To get the shapefile for Montgomery County, Maryland:
+&gt;&gt; geo-epic crop_csb path/to/input.gdb output.shp --county_name &quot;Montgomery, Maryland&quot;
+
+# Cropping the CSB using a bounding box:
+&gt;&gt; geo-epic crop_csb path/to/input.gdb output.shp --bbox &quot;-77.5,38.0,-76.0,39.5&quot;
+
+# Cropping the csb around a center point with a specified extent in km:
+&gt;&gt; geo-epic crop_csb path/to/input.gdb output.shp --center &quot;39.0,-77.0&quot; --extent &quot;50x50&quot;
+</code></pre>
+<p><strong>Note:</strong> For <strong>countries other than USA</strong>, a geo-tiff file covering the region of interest with one channel being the cultivated crop land mask of that region and another channel containing corresponding management info ID can be used to utilize Geo-Epic.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../epic/" class="btn btn-neutral float-left" title="EPIC Model"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Weather/" class="btn btn-neutral float-right" title="Weather Module">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/smarsGroup/geoepic-docs" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../epic/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Weather/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
