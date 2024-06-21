@@ -13,18 +13,20 @@
 
 The USDA Soil Survey Geographic **(SSURGO)** database is a comprehensive resource for soil data collected by the Natural Resources Conservation Service **(NRCS)** across the United States and the Territories. This database provides detailed information on soil properties and classifications. The data is collected through extensive field surveys and laboratory analysis. For more detailed information, visit the [USDA NRCS SSURGO](https://www.nrcs.usda.gov/resources/data-and-reports/soil-survey-geographic-database-ssurgo) page.
 
-To fetch and output soil files using the USDA SSURGO database, following commands could be used. For a specific location, specify the latitude and longitude coordinates to generate a soil file named out_name.SOL. 
+To fetch and output soil files using the USDA SSURGO database, following commands could be used. For a specific location, specify the latitude and longitude coordinates to generate a soil file named {mukey}.SOL. 
 
 ```bash
 # Fetch and output soil files for a specific latitude and longitude
 >> geo-epic soil usda --fetch {lat} {lon} --out {out_path}
 
-# Fetch for a list of locations in a csv file with lat, lon, out_path columns
->> geo-epic soil usda --fetch {list.csv} --out {column_name}
+# Fetch for a list of locations in a csv file with lat, lon
+>> geo-epic soil usda --fetch {list.csv} --out {out_dir}
 
 # Fetch for crop sequence boundaries shape file.
 >> geo-epic soil usda --fetch {aoi_csb.shp} --out {out_dir}
 ```
+
+**Note:** This command will write Soil IDs (mukeys) corresponding to each location as an attribute into the input file, when used with a CSV file or crop sequence boundary shapefile.
 
 **Processing ssurgo gdb file**:
 

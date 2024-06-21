@@ -28,7 +28,7 @@ global_scope:
 
 # Specify Earth Engine (EE) collections and their respective variables
 collections:
-  daymet:
+  AgEra5:
     collection: 'projects/climate-engine-pro/assets/ce-ag-era5/daily'
     variables:
       srad: b('Solar_Radiation_Flux') 
@@ -86,6 +86,7 @@ derived_variables:
 >> geo-epic weather config.yml --fetch {aoi_csb.shp} --out {out_dir}
 ```
 
+**Note:** This command will write weather grid IDs corresponding to each location as an attribute into the input file, when used with a CSV file or crop sequence boundary shapefile.
 
 #### From Daymet and NLDAS
 
@@ -93,7 +94,7 @@ To fetch weather data for a specific latitude and longitude using the Daymet dat
 
 ```bash
 # To download windspeed data, use the following command
->> geo-epic weather windspeed -bbox <bounding_box> -start <start_date> -end <end_date> -out_dir './weather'
+>> geo-epic weather windspeed -bbox <bounding_box> -start <start_date> -end <end_date> -out './weather'
 
 # To fetch and output weather input files for a specific latitude and longitude
 >> geo-epic weather daymet --fetch {lat} {lon} -start <start_date> -end <end_date> --out './weather'

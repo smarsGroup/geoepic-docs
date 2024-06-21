@@ -41,5 +41,6 @@ nav:
     - Crop Management: OPC.md
   - Quick Start:
     - Model Calibration: opt.md
-    - Running an Experiment: runexp.md
+    - Running an Experiment: runepic.md
+    - Code in Python: runexp.md
   - API: api.md
