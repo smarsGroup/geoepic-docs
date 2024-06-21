@@ -40,7 +40,7 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                <li class="toctree-l1"><a class="reference internal" href="..">Intro</a>
                 </li>
               </ul>
               <ul>
@@ -51,8 +51,10 @@
                 <li class="toctree-l1 current"><a class="reference internal current" href="./">Crop Sequence Boundaries</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#obtaining-the-csb-dataset">Obtaining the CSB dataset</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#clipping-the-csb-file-to-your-area-of-interest">Clipping the CSB file to your Area of Interest</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#clipping-the-csb-file-to-your-area-of-interest">Clipping the CSB file to your Area of Interest</a>
+        </ul>
     </li>
     </ul>
                 </li>
@@ -111,9 +113,9 @@
 <p><a href="https://www.nass.usda.gov/Education_and_Outreach/Reports,_Presentations_and_Conferences/reports/conferences/ICAS-2023/Crop%20Sequence%20Boundaries%20%28CSB%29%20Delineated%20Fields%20Using%20Remotely%20Sensed%20Crop%20Rotations.pdf">Crop Sequence Boundaries (CSB): Delineated Fields Using Remotely Sensed Crop Rotations</a>. 
 USDA-NASS &amp; Global Conservation Institute.
 Hunt, K. A., Abernethy, J., Beeson, P., Bowman, M., Wallander, S., &amp; Williams, R.</p>
-<h3 id="obtaining-the-csb-dataset">Obtaining the CSB dataset</h3>
+<h2 id="obtaining-the-csb-dataset">Obtaining the CSB dataset</h2>
 <p>Visit the following URL: <a href="https://www.nass.usda.gov/Research_and_Science/Crop-Sequence-Boundaries/index.php">https://www.nass.usda.gov/Research_and_Science/Crop-Sequence-Boundaries/index.php</a> to download the 'Crop Sequence Boundaries 2016-2023' dataset. After downloading, extract the dataset, which includes crop-field shapes for the entire USA. You can then use crop_csb tool to clip it to fit your Area of Interest (AOI). If your study focuses on Maryland, clip the shapefile for Maryland and save it.</p>
-<h3 id="clipping-the-csb-file-to-your-area-of-interest">Clipping the CSB file to your Area of Interest</h3>
+<h4 id="clipping-the-csb-file-to-your-area-of-interest">Clipping the CSB file to your Area of Interest</h4>
 <p>Geo-Epic comes with a command-line tool to filter and clip the CSB file for your specific region of interest.
 The tool can be invoked with various options to specify the region:</p>
 <pre><code class="language-bash"># Help with the options provided by the tool

@@ -40,7 +40,7 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                <li class="toctree-l1"><a class="reference internal" href="..">Intro</a>
                 </li>
               </ul>
               <ul>
@@ -66,7 +66,7 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="./">Running an Experiment</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#todo">(ToDo)</a>
+    <li class="toctree-l2"><a class="reference internal" href="#todo">&lt;ToDo62</a>
     </li>
     </ul>
                 </li>
@@ -104,7 +104,7 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="running-the-model">Running the model</h1>
-<h4 id="todo">(ToDo)</h4>
+<h4 id="todo">&lt;ToDo&gt;</h4>
 <pre><code class="language-python">from geoEpic import Site, EpicModel
 
 # initialise a site object
@@ -133,7 +133,18 @@ model = EpicModel.from_config(config = './config.yml')
 model.run(site)
 model.close()
 </code></pre>
-<p>example config file:</p>
+<p><strong>Example config file:</strong></p>
+<pre><code class="language-yml"># Model details
+EPICModel: ./model/EPIC2301dt20230820
+start_year: 1995
+duration: 25
+output_types:
+  - ACY  # Annual Crop data file
+  - DGN  # Daily general output file
+log_dir: ./log
+output_dir: ./output
+
+</code></pre>
 <ul>
 <li>To edit the OPC, SOL or files in the epic model folder, you could use the epic_editor. the following command will copy the epiceditor in to your current folder.</li>
 </ul>
