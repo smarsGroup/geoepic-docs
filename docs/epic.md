@@ -4,12 +4,10 @@ The Environmental Policy Integrated Climate **(EPIC)** model, originally known a
 
 
 For more details on EPIC model, visit [Texas A&M AgriLife site](https://epicapex.tamu.edu/about/epic/). 
+
 <br>
-<br>
-<br>
-![EPIC Introduction](./assets/cropsim.png)
-<br>
-<br>
+<img src="../assets/cropsim.png" alt="EPIC" width="100%"/>
+<!-- ![EPIC Introduction](./assets/cropsim.png) -->
 <br>
 
 Initially developed in the early 1980s, **(J. R. Williams,

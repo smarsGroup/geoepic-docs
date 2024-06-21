@@ -1,5 +1,7 @@
 ## Weather Module
-![weather](./assets/fg.jpg)
+
+<!-- ![weather](./assets/fg.jpg) -->
+<img src="../assets/fg.jpg" alt="weather" width="90%"/>
 
 Weather data is vital in providing essential environmental inputs that significantly influence crop growth and development. Reliable weather inputs ensure that agricultural simulations reflect realistic responses to climatic conditions. The EPIC model requires weather input files that detail daily and monthly climatic variables. Daily files provide day-to-day weather data, while monthly files summarize the average or total values per month. These files are crucial for driving the daily simulation processes in EPIC.
 
@@ -16,7 +18,7 @@ Geo-epic allows the integration of weather and climate data sources on GEE. To e
 
 - **using AgERA5**
 
-```yml
+```yaml
 # Global parameters
 global_scope:
   time_range: ['2002-01-01', '2022-12-31']

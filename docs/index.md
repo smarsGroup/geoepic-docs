@@ -1,8 +1,10 @@
 
 # Geo-Epic
-A toolkit for geospatial crop simulations using EPIC model
 
-!['Maryland_Yield'](./assets/Yield_MD.png)
+##### A toolkit for geospatial crop simulations using EPIC model
+
+<img src="./assets/Yield_MD.png" alt="Maryland_Yield" width="90%"/> 
+<!-- !['Maryland_Yield'](./assets/Yield_MD.png) -->
 
 ## Overview
 
@@ -12,12 +14,12 @@ This package expands the capabilities of the **EPIC crop simulation model**, to 
 
 Setup a Virtual environment. (conda Recommended)
 ```bash
-conda create --name epic_env python=3.9
-conda activate epic_env
+>> conda create --name epic_env python=3.9
+>> conda activate epic_env
 ```
 Install the EPIC Python Package
 ```bash
-pip install git+https://github.com/smarsGroup/EPIC-pkg.git
+>> pip install git+https://github.com/smarsGroup/EPIC-pkg.git
 ```
 
 Before starting the setup, ensure you have [`wget`](https://cloudcone.com/docs/article/the-linux-wget-command/) and [`conda`](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html) installed. <br> Follow the links for corresponding installation guides.

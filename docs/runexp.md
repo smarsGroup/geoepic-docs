@@ -1,7 +1,7 @@
 # Running the model
 #### <ToDo\>
 
-```python
+``` py
 from geoEpic import Site, EpicModel
 
 # initialise a site object
@@ -35,7 +35,7 @@ model.close()
 ```
 
 **Example config file:**
-```yml
+```yaml
 # Model details
 EPICModel: ./model/EPIC2301dt20230820
 start_year: 1995
@@ -121,4 +121,4 @@ epic_pkg workspace visualize
 It will simply plot the 'YLDG' variable corresponding to the site ids and crate a map for study region. 
 
 ### Your plot will look like this:
-!['Maryland_Yield'](./Yield_MD.png)
+!['Maryland_Yield'](./assets/Yield_MD.png)

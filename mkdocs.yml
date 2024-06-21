@@ -9,22 +9,37 @@ repo_url: https://github.com/smarsGroup/geoepic-docs
 # site_dir: './site'
 ### Build settings ###
 
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
 theme:
-  name: readthedocs
+  name:  bootstrap4
+  custom_dir: custom
+  suppress_nextprev: false
   shortcuts:
     help: 191    # ?
     next: 78     # n
     previous: 80 # p
     search: 83   # s
-
+  features:
+    - content.code.select
+    - content.code.annotate
 
 nav:
-  - Intro: index.md
+  - Home: index.md
   - EPIC Model: epic.md
-  - Crop Sequence Boundaries: csb.md
-  - Weather Module: Weather.md
-  - Soil Module: Soil.md
-  - Crop Management: OPC.md
-  - Running an Experiment: runexp.md
-  - Model Calibration: opt.md
+  - User Guide:
+    - Crop Sequence Boundaries: csb.md
+    - Weather Module: Weather.md
+    - Soil Module: Soil.md
+    - Crop Management: OPC.md
+  - Quick Start:
+    - Model Calibration: opt.md
+    - Running an Experiment: runexp.md
   - API: api.md

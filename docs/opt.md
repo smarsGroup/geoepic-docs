@@ -7,5 +7,5 @@ To begin calibration, import the calibration module from the package:
 
 #### <ToDo\>
 
-
-![weather](./assets/calibration.png)
+<img src="../assets/calibration.png" alt="calibration" width="85%"/>
+<!-- ![weather](./assets/calibration.png) -->

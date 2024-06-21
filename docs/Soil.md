@@ -1,13 +1,14 @@
-# Soil Module
+## Soil Module
 
  In agriculture simulations, such as those conducted using the EPIC model, soil data directly influences water availability, nutrient supply, and overall crop growth predictions. Soil input files to the model contain detailed information about the soil properties of a specific location, depth wise. Geo-Epic helps in generating soil files required by the EPIC Model from two soil data sources: <br>
 
 - **[USDA SSURGO](https://www.nrcs.usda.gov/resources/data-and-reports/soil-survey-geographic-database-ssurgo)**: which contains detailed surveys of U.S. soils. <br>
 - **[ISRIC SoilGrids 250m](https://soilgrids.org/)**: which offers global coverage in a grid format.
 
-![soilg](./assets/sol.jpg)
+<img src="../assets/sol.jpg" alt="soilg" width="90%"/>
 
 ## Usage
+<br>
 #### USDA SSURGO
 
 The USDA Soil Survey Geographic **(SSURGO)** database is a comprehensive resource for soil data collected by the Natural Resources Conservation Service **(NRCS)** across the United States and the Territories. This database provides detailed information on soil properties and classifications. The data is collected through extensive field surveys and laboratory analysis. For more detailed information, visit the [USDA NRCS SSURGO](https://www.nrcs.usda.gov/resources/data-and-reports/soil-survey-geographic-database-ssurgo) page.
@@ -39,7 +40,7 @@ Link: [https://www.nrcs.usda.gov/resources/data-and-reports/gridded-soil-survey-
 
 The ISRIC Soil Grids 250 meters database is an advanced resource providing high-resolution global soil information. Managed by the International Soil Reference and Information Centre **(ISRIC)**, it uses state-of-the-art machine learning methods to map soil properties across the globe. The prediction models are based on soil profile observations and environmental covariates, including climate, land cover, and terrain morphology. SoilGrids offers soil properties at six standard depth intervals at 250 meters spatial resolution. For more detailed information, visit the [ISRIC Soil Grids](https://www.isric.org/explore/soilgrids) page.
 
-![soilgrid](./assets/SoilGrids_banner_web.png)
+<img src="../assets/SoilGrids_banner_web.png" alt="soilgrid" width="70%"/>
 
 To fetch and output soil files using the ISRIC Soil Grids 250 meters database, you can use the following commands.
 ```bash
@@ -51,7 +52,11 @@ To fetch and output soil files using the ISRIC Soil Grids 250 meters database, y
 ```
 
 Once the tool finishes running, you should see files named {out_name}.SOL in your specified output directory. Open this file to verify that it contains the necessary soil data formatted correctly for use in the EPIC model.
-
-
+<br>
+<br>
+<br>
 **Refer to the EPIC manual for Soil file formatting**
 
+<object data="../assets/soil.pdf" type="application/pdf" width="101%" height="700px">
+  <p>Alternative text for the PDF</p>
+</object>
