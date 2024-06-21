@@ -72,7 +72,9 @@
                   
 <a href="../opt/" class="dropdown-item">Model Calibration</a>
                   
-<a href="../runexp/" class="dropdown-item">Running an Experiment</a>
+<a href="../runepic/" class="dropdown-item">Running an Experiment</a>
+                  
+<a href="../runexp/" class="dropdown-item">Code in Python</a>
                 </div>
               </li>
               <li >
@@ -142,7 +144,7 @@
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1"># Specify Earth Engine (EE) collections and their respective variables</span>
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">collections</span><span class="p">:</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="nt">daymet</span><span class="p">:</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="nt">AgEra5</span><span class="p">:</span>
 </span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="nt">collection</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;projects/climate-engine-pro/assets/ce-ag-era5/daily&#39;</span>
 </span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="nt">variables</span><span class="p">:</span>
 </span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">      </span><span class="nt">srad</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">b(&#39;Solar_Radiation_Flux&#39;)</span><span class="w"> </span>
@@ -193,10 +195,11 @@
 </span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a># Fetch for crop sequence boundaries shape file.
 </span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>&gt;&gt; geo-epic weather config.yml --fetch {aoi_csb.shp} --out {out_dir}
 </span></code></pre></div>
+<p><strong>Note:</strong> This command will write weather grid IDs corresponding to each location as an attribute into the input file, when used with a CSV file or crop sequence boundary shapefile.</p>
 <h4 id="from-daymet-and-nldas">From Daymet and NLDAS</h4>
 <p>To fetch weather data for a specific latitude and longitude using the Daymet dataset, start by downloading the windspeed data from the NLDAS dataset and saving it to the specified directory. Afterward, fetch the other required weather data from the Daymet dataset.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># To download windspeed data, use the following command</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>&gt;&gt;<span class="w"> </span>geo-epic<span class="w"> </span>weather<span class="w"> </span>windspeed<span class="w"> </span>-bbox<span class="w"> </span>&lt;bounding_box&gt;<span class="w"> </span>-start<span class="w"> </span>&lt;start_date&gt;<span class="w"> </span>-end<span class="w"> </span>&lt;end_date&gt;<span class="w"> </span>-out_dir<span class="w"> </span><span class="s1">&#39;./weather&#39;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>&gt;&gt;<span class="w"> </span>geo-epic<span class="w"> </span>weather<span class="w"> </span>windspeed<span class="w"> </span>-bbox<span class="w"> </span>&lt;bounding_box&gt;<span class="w"> </span>-start<span class="w"> </span>&lt;start_date&gt;<span class="w"> </span>-end<span class="w"> </span>&lt;end_date&gt;<span class="w"> </span>-out<span class="w"> </span><span class="s1">&#39;./weather&#39;</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># To fetch and output weather input files for a specific latitude and longitude</span>
 </span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>&gt;&gt;<span class="w"> </span>geo-epic<span class="w"> </span>weather<span class="w"> </span>daymet<span class="w"> </span>--fetch<span class="w"> </span><span class="o">{</span>lat<span class="o">}</span><span class="w"> </span><span class="o">{</span>lon<span class="o">}</span><span class="w"> </span>-start<span class="w"> </span>&lt;start_date&gt;<span class="w"> </span>-end<span class="w"> </span>&lt;end_date&gt;<span class="w"> </span>--out<span class="w"> </span><span class="s1">&#39;./weather&#39;</span>

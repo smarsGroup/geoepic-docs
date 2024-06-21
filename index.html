@@ -72,7 +72,9 @@
                   
 <a href="opt/" class="dropdown-item">Model Calibration</a>
                   
-<a href="runexp/" class="dropdown-item">Running an Experiment</a>
+<a href="runepic/" class="dropdown-item">Running an Experiment</a>
+                  
+<a href="runexp/" class="dropdown-item">Code in Python</a>
                 </div>
               </li>
               <li >
@@ -125,14 +127,15 @@
 <h2 id="overview">Overview</h2>
 <p>This package expands the capabilities of the <strong>EPIC crop simulation model</strong>, to simulate crop growth and development across large geographies, such as entire states or counties by leveraging openly availabe remote sensing products and geospatial databases. Additionally, the toolkit features a unique calibration module that allows fine-tuning of model parameters to reflect specific local conditions or experimental results. This toolkit allows researchers to assess crop production potential, management scenarios and risks at broader scales, informing decision-making for sustainable agricultural practices.</p>
 <h2 id="installation">Installation</h2>
+<p>Before starting the setup, ensure you have <a href="https://cloudcone.com/docs/article/the-linux-wget-command/"><code>wget</code></a> and <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html"><code>conda</code></a> installed. <br> Follow the links for corresponding installation guides.</p>
 <p>Setup a Virtual environment. (conda Recommended)
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>&gt;&gt;<span class="w"> </span>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>epic_env<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.9
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>&gt;&gt;<span class="w"> </span>conda<span class="w"> </span>activate<span class="w"> </span>epic_env
 </span></code></pre></div>
-Install the EPIC Python Package
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>&gt;&gt;<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/smarsGroup/EPIC-pkg.git
+Install the Geo-Epic Toolkit
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>&gt;&gt;<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/smarsGroup/geo-epic.git
 </span></code></pre></div></p>
-<p>Before starting the setup, ensure you have <a href="https://cloudcone.com/docs/article/the-linux-wget-command/"><code>wget</code></a> and <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html"><code>conda</code></a> installed. <br> Follow the links for corresponding installation guides.</p>
+<p>Refer to the user guide and quick start tutorials to understand the Geo-Epic simulation workflow.</p>
 
 <ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
   <li class="last-updated-holder displayDate loading">
@@ -256,5 +259,5 @@ Install the EPIC Python Package
 
 <!--
 MkDocs version : 1.6.0
-Build Date UTC : 2024-06-21 14:57:51.509416+00:00
+Build Date UTC : 2024-06-21 20:20:21.336539+00:00
 -->

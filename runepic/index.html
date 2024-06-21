@@ -12,9 +12,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="https://smarsgroup.github.io/geoepic-docs/opt/">
+        <link rel="canonical" href="https://smarsgroup.github.io/geoepic-docs/runepic/">
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Model Calibration - Geo-Epic</title>
+        <title>Running an Experiment - Geo-Epic</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/base.css" rel="stylesheet">
@@ -70,9 +70,9 @@
                 <a href="#" role="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="nav-dropdown-Quick Start">Quick Start <b class="caret"></b></a>
                 <div class="dropdown-menu" aria-labelledby="nav-dropdown-Quick Start">
                   
-<a href="./" class="dropdown-item active">Model Calibration</a>
+<a href="../opt/" class="dropdown-item">Model Calibration</a>
                   
-<a href="../runepic/" class="dropdown-item">Running an Experiment</a>
+<a href="./" class="dropdown-item active">Running an Experiment</a>
                   
 <a href="../runexp/" class="dropdown-item">Code in Python</a>
                 </div>
@@ -90,17 +90,17 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" rel="next" href="../OPC/">
+              <a class="nav-link" rel="next" href="../opt/">
 		<i class="fa fa-arrow-left"></i> Previous
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" rel="prev" href="../runepic/">
+              <a class="nav-link" rel="prev" href="../runexp/">
 		Next <i class="fa fa-arrow-right"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://github.com/smarsGroup/geoepic-docs/edit/master/docs/opt.md"><i class="fa fa-github"></i> Edit on GitHub</a>
+              <a class="nav-link" href="https://github.com/smarsGroup/geoepic-docs/edit/master/docs/runepic.md"><i class="fa fa-github"></i> Edit on GitHub</a>
             </li>
           </ul>
 	</div>
@@ -118,18 +118,54 @@
     <li class="breadcrumb-item">Quick Start</li>
     
     
-    <li class="breadcrumb-item active" aria-current="page">Model Calibration</li>
+    <li class="breadcrumb-item active" aria-current="page">Running an Experiment</li>
   </ol>
 </nav>
 
 
-<h2 id="overview">Overview</h2>
-<p>The Calibration Module in Geo-Epic is developed to assist in tuning desired parameters involved in the EPIC model based on observational data, such as Leaf Area Index (LAI), Net Ecosystem Exchange (NEE), crop yield, or biomass. This allows model parameters to be refined to better reflect specific local conditions or experimental results.</p>
-<h2 id="getting-started">Getting Started</h2>
-<p>To begin calibration, import the calibration module from the package:</p>
-<h4 id="todo">&lt;ToDo&gt;</h4>
-<p><img src="../assets/calibration.png" alt="calibration" width="85%"/></p>
-<!-- ![weather](./assets/calibration.png) -->
+<h1 id="running-an-epic-experiment">Running an EPIC Experiment</h1>
+<h3 id="1-create-new-workspace">1. Create new workspace</h3>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>epic_pkg<span class="w"> </span>workspace<span class="w"> </span>new<span class="w"> </span>-w<span class="w"> </span>Test
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>Test
+</span></code></pre></div>
+It willl create a new workspace in the new directory named 'Test'. This 'Test' folder will automatically create sub-folders for EPIC model like model, opc, sites, soil, weather and a config.yml doc in it. You need to to go to Test folder before simulation starts.</p>
+<h3 id="2-edit-config-file-as-needed">2. Edit config file as needed</h3>
+<p>This package is mainly designed for study regions in the USA. In the config.yml file, update the settings in the config file based on your area of interest (AOI) and preferences. For example, if you need to run the model for the state of Maryland, USA, modify these rows as follows:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>EXPName: Nitrogen Assessment (Your Experiment Name) 
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Region: Maryland 
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>code: MD 
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Fields_of_Interests: ./CropRotations/MDRotFilt.shp
+</span></code></pre></div>
+<p>Note: The MDRotFilt.shp file is the same one downloaded and placed in the CropRotations folder in the previous step.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>soil: 
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>   ssurgo_gdb: ./soil/gSSURGO_MD.gdb
+</span></code></pre></div>
+Guideline: The rule of thumb is to edit the configuration file using the region code specific to your study region, as done here using "MD" throughout the config file.</p>
+<h3 id="3-prepare-opc-file">3. Prepare OPC File</h3>
+<p>OPC refers to the agricultural management practice files which is yet to automated. For now, you need to prpare management files and keep it in a new folder named 'OPC' inside the 'Test' directory.</p>
+<h3 id="4-prepare-the-workspace">4. Prepare the workspace</h3>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>epic_pkg<span class="w"> </span>workspace<span class="w"> </span>prepare
+</span></code></pre></div>
+This command will automatically pre-process the input files before simulation.</p>
+<h3 id="5-and-execute-the-simulations">5. And execute the simulations</h3>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>epic_pkg<span class="w"> </span>workspace<span class="w"> </span>run
+</span></code></pre></div>
+This command will simulate the operation/s and automatically save the results in a new folder named 'Output'. </p>
+<p>This command will also create a <strong>post_process.pynb</strong> doc which will have an example code to visualize the required parameters from ACY and DGN files. </p>
+<p>You can edit this code as per your requirements. You just have to identify the parameters and edit accordingly.</p>
+<h2 id="example-visualization">Example Visualization</h2>
+<h3 id="6-post-process-the-output-visualization">6. Post-process the output visualization</h3>
+<p>You need to post-process the output files according to your interests. Generally, as an agricultural reserachers you need to process the DGN and ACY files.</p>
+<h4 id="for-post-processing">For post-processing</h4>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>epic_pkg workspace post_process
+</span></code></pre></div>
+This will run the example code <strong>post_process.pynb</strong> which has been created in the Test folder. It will take a variable called 'YLDG' which denotes the yearly yield in t/ha/yr for all the sites and put it in a sepearte column corresponding to all the site ids with creatinh a yldg.csv file.</p>
+<h4 id="for-visualization">For visualization</h4>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>epic_pkg workspace visualize
+</span></code></pre></div>
+It will simply plot the 'YLDG' variable corresponding to the site ids and crate a map for study region. </p>
+<h3 id="your-plot-will-look-like-this">Your plot will look like this:</h3>
+<p><img src="../assets/Yield_MD.png" alt="Maryland_Yield" width="100%"/> </p>
 
 <ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
   <li class="last-updated-holder displayDate loading">
@@ -156,10 +192,24 @@
 
     <div id="toc-collapse" class="navbar-collapse collapse card">
         <ul class="nav flex-column bs-sidenav">
-            <li class="nav-item main"><a class="nav-link" href="#overview">Overview</a></li>
-            <li class="nav-item main"><a class="nav-link" href="#getting-started">Getting Started</a></li>
+            <li class="nav-item main"><a class="nav-link" href="#running-an-epic-experiment">Running an EPIC Experiment</a></li>
                 <li class="nav-item">
-                    <a href="#todo" class="nav-link">&lt;ToDo></a>
+                    <a href="#1-create-new-workspace" class="nav-link">1. Create new workspace</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#2-edit-config-file-as-needed" class="nav-link">2. Edit config file as needed</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#3-prepare-opc-file" class="nav-link">3. Prepare OPC File</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#4-prepare-the-workspace" class="nav-link">4. Prepare the workspace</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#5-and-execute-the-simulations" class="nav-link">5. And execute the simulations</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#example-visualization" class="nav-link">Example Visualization</a>
                 </li>
         </ul>
     </div>

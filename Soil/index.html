@@ -72,7 +72,9 @@
                   
 <a href="../opt/" class="dropdown-item">Model Calibration</a>
                   
-<a href="../runexp/" class="dropdown-item">Running an Experiment</a>
+<a href="../runepic/" class="dropdown-item">Running an Experiment</a>
+                  
+<a href="../runexp/" class="dropdown-item">Code in Python</a>
                 </div>
               </li>
               <li >
@@ -132,16 +134,17 @@
 <p><br></p>
 <h4 id="usda-ssurgo">USDA SSURGO</h4>
 <p>The USDA Soil Survey Geographic <strong>(SSURGO)</strong> database is a comprehensive resource for soil data collected by the Natural Resources Conservation Service <strong>(NRCS)</strong> across the United States and the Territories. This database provides detailed information on soil properties and classifications. The data is collected through extensive field surveys and laboratory analysis. For more detailed information, visit the <a href="https://www.nrcs.usda.gov/resources/data-and-reports/soil-survey-geographic-database-ssurgo">USDA NRCS SSURGO</a> page.</p>
-<p>To fetch and output soil files using the USDA SSURGO database, following commands could be used. For a specific location, specify the latitude and longitude coordinates to generate a soil file named out_name.SOL. </p>
+<p>To fetch and output soil files using the USDA SSURGO database, following commands could be used. For a specific location, specify the latitude and longitude coordinates to generate a soil file named {mukey}.SOL. </p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Fetch and output soil files for a specific latitude and longitude</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>&gt;&gt;<span class="w"> </span>geo-epic<span class="w"> </span>soil<span class="w"> </span>usda<span class="w"> </span>--fetch<span class="w"> </span><span class="o">{</span>lat<span class="o">}</span><span class="w"> </span><span class="o">{</span>lon<span class="o">}</span><span class="w"> </span>--out<span class="w"> </span><span class="o">{</span>out_path<span class="o">}</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Fetch for a list of locations in a csv file with lat, lon, out_path columns</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>&gt;&gt;<span class="w"> </span>geo-epic<span class="w"> </span>soil<span class="w"> </span>usda<span class="w"> </span>--fetch<span class="w"> </span><span class="o">{</span>list.csv<span class="o">}</span><span class="w"> </span>--out<span class="w"> </span><span class="o">{</span>column_name<span class="o">}</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Fetch for a list of locations in a csv file with lat, lon</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>&gt;&gt;<span class="w"> </span>geo-epic<span class="w"> </span>soil<span class="w"> </span>usda<span class="w"> </span>--fetch<span class="w"> </span><span class="o">{</span>list.csv<span class="o">}</span><span class="w"> </span>--out<span class="w"> </span><span class="o">{</span>out_dir<span class="o">}</span>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Fetch for crop sequence boundaries shape file.</span>
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>&gt;&gt;<span class="w"> </span>geo-epic<span class="w"> </span>soil<span class="w"> </span>usda<span class="w"> </span>--fetch<span class="w"> </span><span class="o">{</span>aoi_csb.shp<span class="o">}</span><span class="w"> </span>--out<span class="w"> </span><span class="o">{</span>out_dir<span class="o">}</span>
 </span></code></pre></div>
+<p><strong>Note:</strong> This command will write Soil IDs (mukeys) corresponding to each location as an attribute into the input file, when used with a CSV file or crop sequence boundary shapefile.</p>
 <p><strong>Processing ssurgo gdb file</strong>:</p>
 <p>To process a SSURGO GDB file and generate soil files for all unique soils contained in it, follow these steps. For instance, if you require soil files for Maryland, navigate to the 'State Database - Soils' section, and download the 'gSSURGO_MD.zip' file. Once the download is complete, extract the contents and place the GDB file in the 'soil' folder within your workspace. Use the following command to generate the soil files for all mukeys. </p>
 <p>Link: <a href="https://www.nrcs.usda.gov/resources/data-and-reports/gridded-soil-survey-geographic-gssurgo-database">https://www.nrcs.usda.gov/resources/data-and-reports/gridded-soil-survey-geographic-gssurgo-database</a></p>

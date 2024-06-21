@@ -41,6 +41,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://smarsgroup.github.io/geoepic-docs/runepic/</loc>
+         <lastmod>2024-06-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://smarsgroup.github.io/geoepic-docs/runexp/</loc>
          <lastmod>2024-06-21</lastmod>
          <changefreq>daily</changefreq>
