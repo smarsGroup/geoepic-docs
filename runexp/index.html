@@ -1,247 +1,345 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://smarsgroup.github.io/geoepic-docs/runexp/" />
-      <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Running an Experiment - Geo-Epic</title>
-    <link rel="stylesheet" href="../css/theme.css" />
-    <link rel="stylesheet" href="../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
-    
+<html lang="en">
+    <head>
       <script>
-        // Current page data
-        var mkdocs_page_name = "Running an Experiment";
-        var mkdocs_page_input_path = "runexp.md";
-        var mkdocs_page_url = "/geoepic-docs/runexp/";
+	// Hack for scrolling window when linking to anchor tag with fixed nav header
+        var shiftWindow = function() { scrollBy(0, -75) };
+        window.addEventListener("hashchange", shiftWindow);
+        function load() { if (window.location.hash) shiftWindow(); }
       </script>
-    
-    <!--[if lt IE 9]>
-      <script src="../js/html5shiv.min.js"></script>
-    <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-      <script>hljs.highlightAll();</script> 
-</head>
-
-<body class="wy-body-for-nav" role="document">
-
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> Geo-Epic
-        </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="..">Intro</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../epic/">EPIC Model</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../csb/">Crop Sequence Boundaries</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Weather/">Weather Module</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Soil/">Soil Module</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../OPC/">Crop Management</a>
-                </li>
-              </ul>
-              <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="./">Running an Experiment</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#todo">&lt;ToDo62</a>
-    </li>
-    </ul>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../opt/">Model Calibration</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../api/">API</a>
-                </li>
-              </ul>
-      </div>
-    </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">Geo-Epic</a>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-      </nav>
-      <div class="wy-nav-content">
-        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Running an Experiment</li>
-    <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/smarsGroup/geoepic-docs/edit/master/docs/runexp.md" class="icon icon-github"> Edit on GitHub</a>
-    </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <div class="section" itemprop="articleBody">
-              
-                <h1 id="running-the-model">Running the model</h1>
+        
+        <link rel="canonical" href="https://smarsgroup.github.io/geoepic-docs/runexp/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Running an Experiment - Geo-Epic</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/http.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../js/base.js"></script> 
+    </head>
+
+    <body class="">
+
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+	<div class="container">
+	<a class="navbar-brand" href="..">Geo-Epic</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+	</button>
+
+	<div class="collapse navbar-collapse">
+          <!-- Main navigation -->
+          <nav class="nav">
+            <ul class="navbar-nav">
+              <li >
+                <a class="nav-link" href="..">Home</a>
+              </li>
+              <li >
+                <a class="nav-link" href="../epic/">EPIC Model</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a href="#" role="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="nav-dropdown-User Guide">User Guide <b class="caret"></b></a>
+                <div class="dropdown-menu" aria-labelledby="nav-dropdown-User Guide">
+                  
+<a href="../csb/" class="dropdown-item">Crop Sequence Boundaries</a>
+                  
+<a href="../Weather/" class="dropdown-item">Weather Module</a>
+                  
+<a href="../Soil/" class="dropdown-item">Soil Module</a>
+                  
+<a href="../OPC/" class="dropdown-item">Crop Management</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown active">
+                <a href="#" role="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="nav-dropdown-Quick Start">Quick Start <b class="caret"></b></a>
+                <div class="dropdown-menu" aria-labelledby="nav-dropdown-Quick Start">
+                  
+<a href="../opt/" class="dropdown-item">Model Calibration</a>
+                  
+<a href="./" class="dropdown-item active">Running an Experiment</a>
+                </div>
+              </li>
+              <li >
+                <a class="nav-link" href="../api/">API</a>
+              </li>
+            </ul>
+          </nav>
+
+          <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+		<i class="fa fa-search"></i> Search
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" rel="next" href="../opt/">
+		<i class="fa fa-arrow-left"></i> Previous
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" rel="prev" href="../api/">
+		Next <i class="fa fa-arrow-right"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/smarsGroup/geoepic-docs/edit/master/docs/runexp.md"><i class="fa fa-github"></i> Edit on GitHub</a>
+            </li>
+          </ul>
+	</div>
+	</div>
+      </nav><div id="content" class="container">
+        
+      <div class="row">
+        <div class="col-md-9" role="main">
+
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    
+    
+    <li class="breadcrumb-item">Quick Start</li>
+    
+    
+    <li class="breadcrumb-item active" aria-current="page">Running an Experiment</li>
+  </ol>
+</nav>
+
+
+<h1 id="running-the-model">Running the model</h1>
 <h4 id="todo">&lt;ToDo&gt;</h4>
-<pre><code class="language-python">from geoEpic import Site, EpicModel
-
-# initialise a site object
-site = Site(opc = './continuous_corn.OPC',  # management file
-            dly = './1123455.DLY',          # daily weather file 
-            sol = './Andisol.SOL',          # soil file
-            sit = './1.SIT')                # site file
-
-
-# initialise the EPIC model
-model = EpicModel(path = './model/EPIC2301dt20230820')
-model.setup(start_year = 2014, duration = 10)
-model.set_output_types(['ACY', 'DGN'])
-
-# run the simulation for the site
-model.run(site)
-
-# get the required outputs
-acy = model.outputs['ACY']
-model.close()
-</code></pre>
-<p>Loading from config files:</p>
-<pre><code class="language-python">site = Site.from_config(lat = , lon = , config = './config.yml')
-model = EpicModel.from_config(config = './config.yml')
-
-model.run(site)
-model.close()
-</code></pre>
-<p><strong>Example config file:</strong></p>
-<pre><code class="language-yml"># Model details
-EPICModel: ./model/EPIC2301dt20230820
-start_year: 1995
-duration: 25
-output_types:
-  - ACY  # Annual Crop data file
-  - DGN  # Daily general output file
-log_dir: ./log
-output_dir: ./output
-
-</code></pre>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">geoEpic</span> <span class="kn">import</span> <span class="n">Site</span><span class="p">,</span> <span class="n">EpicModel</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># initialise a site object</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">site</span> <span class="o">=</span> <span class="n">Site</span><span class="p">(</span><span class="n">opc</span> <span class="o">=</span> <span class="s1">&#39;./continuous_corn.OPC&#39;</span><span class="p">,</span>  <span class="c1"># management file</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>            <span class="n">dly</span> <span class="o">=</span> <span class="s1">&#39;./1123455.DLY&#39;</span><span class="p">,</span>          <span class="c1"># daily weather file </span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>            <span class="n">sol</span> <span class="o">=</span> <span class="s1">&#39;./Andisol.SOL&#39;</span><span class="p">,</span>          <span class="c1"># soil file</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>            <span class="n">sit</span> <span class="o">=</span> <span class="s1">&#39;./1.SIT&#39;</span><span class="p">)</span>                <span class="c1"># site file</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># initialise the EPIC model</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">model</span> <span class="o">=</span> <span class="n">EpicModel</span><span class="p">(</span><span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;./model/EPIC2301dt20230820&#39;</span><span class="p">)</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="n">model</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">start_year</span> <span class="o">=</span> <span class="mi">2014</span><span class="p">,</span> <span class="n">duration</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="n">model</span><span class="o">.</span><span class="n">set_output_types</span><span class="p">([</span><span class="s1">&#39;ACY&#39;</span><span class="p">,</span> <span class="s1">&#39;DGN&#39;</span><span class="p">])</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="c1"># run the simulation for the site</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="n">model</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">site</span><span class="p">)</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="c1"># get the required outputs</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="n">acy</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;ACY&#39;</span><span class="p">]</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="n">model</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></code></pre></div>
+<p>Loading from config files:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">site</span> <span class="o">=</span> <span class="n">Site</span><span class="o">.</span><span class="n">from_config</span><span class="p">(</span><span class="n">lat</span> <span class="o">=</span> <span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="p">,</span> <span class="n">config</span> <span class="o">=</span> <span class="s1">&#39;./config.yml&#39;</span><span class="p">)</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">model</span> <span class="o">=</span> <span class="n">EpicModel</span><span class="o">.</span><span class="n">from_config</span><span class="p">(</span><span class="n">config</span> <span class="o">=</span> <span class="s1">&#39;./config.yml&#39;</span><span class="p">)</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">model</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">site</span><span class="p">)</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">model</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></code></pre></div></p>
+<p><strong>Example config file:</strong>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Model details</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nt">EPICModel</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./model/EPIC2301dt20230820</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nt">start_year</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1995</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nt">duration</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">25</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nt">output_types</span><span class="p">:</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ACY</span><span class="w">  </span><span class="c1"># Annual Crop data file</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DGN</span><span class="w">  </span><span class="c1"># Daily general output file</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="nt">log_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./log</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="nt">output_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./output</span>
+</span></code></pre></div></p>
 <ul>
 <li>To edit the OPC, SOL or files in the epic model folder, you could use the epic_editor. the following command will copy the epiceditor in to your current folder.</li>
 </ul>
-<pre><code class="language-bash">&gt;&gt; geo-epic workspace add epic_editor
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>&gt;&gt;<span class="w"> </span>geo-epic<span class="w"> </span>workspace<span class="w"> </span>add<span class="w"> </span>epic_editor
+</span></code></pre></div>
 <h1 id="running-an-epic-experiment">Running an EPIC Experiment</h1>
 <h3 id="1-create-new-workspace">1. Create new workspace</h3>
-<pre><code class="language-bash">epic_pkg workspace new -w Test
-cd Test
-</code></pre>
-<p>It willl create a new workspace in the new directory named 'Test'. This 'Test' folder will automatically create sub-folders for EPIC model like model, opc, sites, soil, weather and a config.yml doc in it. You need to to go to Test folder before simulation starts.</p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>epic_pkg<span class="w"> </span>workspace<span class="w"> </span>new<span class="w"> </span>-w<span class="w"> </span>Test
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">cd</span><span class="w"> </span>Test
+</span></code></pre></div>
+It willl create a new workspace in the new directory named 'Test'. This 'Test' folder will automatically create sub-folders for EPIC model like model, opc, sites, soil, weather and a config.yml doc in it. You need to to go to Test folder before simulation starts.</p>
 <h3 id="2-edit-config-file-as-needed">2. Edit config file as needed</h3>
 <p>This package is mainly designed for study regions in the USA. In the config.yml file, update the settings in the config file based on your area of interest (AOI) and preferences. For example, if you need to run the model for the state of Maryland, USA, modify these rows as follows:</p>
-<pre><code>EXPName: Nitrogen Assessment (Your Experiment Name) 
-Region: Maryland 
-code: MD 
-Fields_of_Interests: ./CropRotations/MDRotFilt.shp
-</code></pre>
-<p>Note: The MDRotFilt.shp file is the same one downloaded and placed in the CropRotations folder in the previous step.</p>
-<pre><code>soil: 
-   ssurgo_gdb: ./soil/gSSURGO_MD.gdb
-</code></pre>
-<p>Guideline: The rule of thumb is to edit the configuration file using the region code specific to your study region, as done here using "MD" throughout the config file.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>EXPName: Nitrogen Assessment (Your Experiment Name) 
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Region: Maryland 
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>code: MD 
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>Fields_of_Interests: ./CropRotations/MDRotFilt.shp
+</span></code></pre></div>
+<p>Note: The MDRotFilt.shp file is the same one downloaded and placed in the CropRotations folder in the previous step.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>soil: 
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>   ssurgo_gdb: ./soil/gSSURGO_MD.gdb
+</span></code></pre></div>
+Guideline: The rule of thumb is to edit the configuration file using the region code specific to your study region, as done here using "MD" throughout the config file.</p>
 <h3 id="3-prepare-opc-file">3. Prepare OPC File</h3>
 <p>OPC refers to the agricultural management practice files which is yet to automated. For now, you need to prpare management files and keep it in a new folder named 'OPC' inside the 'Test' directory.</p>
 <h3 id="4-prepare-the-workspace">4. Prepare the workspace</h3>
-<pre><code class="language-bash">epic_pkg workspace prepare
-</code></pre>
-<p>This command will automatically pre-process the input files before simulation.</p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>epic_pkg<span class="w"> </span>workspace<span class="w"> </span>prepare
+</span></code></pre></div>
+This command will automatically pre-process the input files before simulation.</p>
 <h3 id="5-and-execute-the-simulations">5. And execute the simulations</h3>
-<pre><code class="language-bash">epic_pkg workspace run
-</code></pre>
-<p>This command will simulate the operation/s and automatically save the results in a new folder named 'Output'. </p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>epic_pkg<span class="w"> </span>workspace<span class="w"> </span>run
+</span></code></pre></div>
+This command will simulate the operation/s and automatically save the results in a new folder named 'Output'. </p>
 <p>This command will also create a <strong>post_process.pynb</strong> doc which will have an example code to visualize the required parameters from ACY and DGN files. </p>
 <p>You can edit this code as per your requirements. You just have to identify the parameters and edit accordingly.</p>
 <h2 id="example-visualization">Example Visualization</h2>
 <h3 id="6-post-process-the-output-visualization">6. Post-process the output visualization</h3>
 <p>You need to post-process the output files according to your interests. Generally, as an agricultural reserachers you need to process the DGN and ACY files.</p>
 <h4 id="for-post-processing">For post-processing</h4>
-<pre><code>epic_pkg workspace post_process
-</code></pre>
-<p>This will run the example code <strong>post_process.pynb</strong> which has been created in the Test folder. It will take a variable called 'YLDG' which denotes the yearly yield in t/ha/yr for all the sites and put it in a sepearte column corresponding to all the site ids with creatinh a yldg.csv file.</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>epic_pkg workspace post_process
+</span></code></pre></div>
+This will run the example code <strong>post_process.pynb</strong> which has been created in the Test folder. It will take a variable called 'YLDG' which denotes the yearly yield in t/ha/yr for all the sites and put it in a sepearte column corresponding to all the site ids with creatinh a yldg.csv file.</p>
 <h4 id="for-visualization">For visualization</h4>
-<pre><code>epic_pkg workspace visualize
-</code></pre>
-<p>It will simply plot the 'YLDG' variable corresponding to the site ids and crate a map for study region. </p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>epic_pkg workspace visualize
+</span></code></pre></div>
+It will simply plot the 'YLDG' variable corresponding to the site ids and crate a map for study region. </p>
 <h3 id="your-plot-will-look-like-this">Your plot will look like this:</h3>
-<p><img alt="'Maryland_Yield'" src="./Yield_MD.png" /></p>
-              
-            </div>
-          </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../OPC/" class="btn btn-neutral float-left" title="Crop Management"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../opt/" class="btn btn-neutral float-right" title="Model Calibration">Next <span class="icon icon-circle-arrow-right"></span></a>
+<p><img alt="'Maryland_Yield'" src="../assets/Yield_MD.png" /></p>
+
+<ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
+  <li class="last-updated-holder displayDate loading">
+    <span class="last-updated-text">Last updated:</span>
+    <time role="presentation" datetime="2018-10-25T00:00:00.000Z" data-article-date-source="ms.date"></time>
+  </li>
+<!--
+  <li class="readingTime">
+    2 minutes to read
+  </li>
+-->
+  <li class="contributors-holder">
+    <span class="contributors-text">Contributors</span>
+    <ul class="contributors" data-bi-name="contributors"></ul>
+  </li>
+</ul>
+</div>
+        <div class="col-md-3"><div class="navbar-light navbar-expand-md hidden-print sticky-top sticky-offset" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
     </div>
 
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-  </div>
-
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-          
-        </div>
+    <div id="toc-collapse" class="navbar-collapse collapse card">
+        <ul class="nav flex-column bs-sidenav">
+            <li class="nav-item main"><a class="nav-link" href="#running-the-model">Running the model</a></li>
+                <li class="nav-item">
+                    <a href="#todo" class="nav-link">&lt;ToDo></a>
+                </li>
+            <li class="nav-item main"><a class="nav-link" href="#running-an-epic-experiment">Running an EPIC Experiment</a></li>
+                <li class="nav-item">
+                    <a href="#1-create-new-workspace" class="nav-link">1. Create new workspace</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#2-edit-config-file-as-needed" class="nav-link">2. Edit config file as needed</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#3-prepare-opc-file" class="nav-link">3. Prepare OPC File</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#4-prepare-the-workspace" class="nav-link">4. Prepare the workspace</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#5-and-execute-the-simulations" class="nav-link">5. And execute the simulations</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#example-visualization" class="nav-link">Example Visualization</a>
+                </li>
+        </ul>
+    </div>
+</div></div>
+      </div>
       </div>
 
-    </section>
+      <footer class="col-md-12">
+	<hr>
+	<div class="container">
+	</div>
+      </footer>
+      <script>
+	var base_url = "..",
+            shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+      </script>
+      <script src="../js/base.js" defer></script>
+      <script src="../search/main.js" defer></script>
 
-  </div>
-
-  <div class="rst-versions" role="note" aria-label="Versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
-    
-        <span>
-          <a href="https://github.com/smarsGroup/geoepic-docs" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
-        </span>
-    
-    
-      <span><a href="../OPC/" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-      <span><a href="../opt/" style="color: #fcfcfc">Next &raquo;</a></span>
-    
-  </span>
+      <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="h4 modal-title">Keyboard Shortcuts</p>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
 </div>
-    <script src="../js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = "..";</script>
-    <script src="../js/theme_extra.js"></script>
-    <script src="../js/theme.js"></script>
-      <script src="../search/main.js"></script>
-    <script>
-        jQuery(function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        });
-    </script>
 
-</body>
+    </body>
 </html>
