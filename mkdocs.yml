@@ -9,11 +9,17 @@ repo_url: https://github.com/smarsGroup/geoepic-docs
 # site_dir: './site'
 ### Build settings ###
 
-theme: readthedocs
+theme:
+  name: readthedocs
+  shortcuts:
+    help: 191    # ?
+    next: 78     # n
+    previous: 80 # p
+    search: 83   # s
 
 
 nav:
-  - Home: index.md
+  - Intro: index.md
   - EPIC Model: epic.md
   - Crop Sequence Boundaries: csb.md
   - Weather Module: Weather.md
