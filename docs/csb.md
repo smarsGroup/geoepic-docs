@@ -9,12 +9,12 @@ For effective simulations using the **EPIC** model, it is essential to have land
 USDA-NASS & Global Conservation Institute.
 Hunt, K. A., Abernethy, J., Beeson, P., Bowman, M., Wallander, S., & Williams, R.
 
-### Obtaining the CSB dataset
+## Obtaining the CSB dataset
 
 Visit the following URL: [https://www.nass.usda.gov/Research_and_Science/Crop-Sequence-Boundaries/index.php](https://www.nass.usda.gov/Research_and_Science/Crop-Sequence-Boundaries/index.php) to download the 'Crop Sequence Boundaries 2016-2023' dataset. After downloading, extract the dataset, which includes crop-field shapes for the entire USA. You can then use crop_csb tool to clip it to fit your Area of Interest (AOI). If your study focuses on Maryland, clip the shapefile for Maryland and save it.
  
 
-### Clipping the CSB file to your Area of Interest
+#### Clipping the CSB file to your Area of Interest
 Geo-Epic comes with a command-line tool to filter and clip the CSB file for your specific region of interest.
 The tool can be invoked with various options to specify the region:
 ```bash

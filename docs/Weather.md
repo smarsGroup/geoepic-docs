@@ -1,4 +1,4 @@
-### Weather Module
+## Weather Module
 ![weather](./assets/fg.jpg)
 
 Weather data is vital in providing essential environmental inputs that significantly influence crop growth and development. Reliable weather inputs ensure that agricultural simulations reflect realistic responses to climatic conditions. The EPIC model requires weather input files that detail daily and monthly climatic variables. Daily files provide day-to-day weather data, while monthly files summarize the average or total values per month. These files are crucial for driving the daily simulation processes in EPIC.

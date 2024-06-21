@@ -20,9 +20,13 @@ geo-epic workspace new -w Test
   - **run**: Execute the simulations.
   - **post_process**: Process Output files from simulation runs.
 #### **weather**
+  - **ee**: 
+  - **windspeed**: 
   - **download_daily**: Download daily weather data. 
   - **daily2monthly**: Convert daily weather data to monthly.
 #### **soil**
+  - **usda**:
+  - **isirc**:
   - **process_gdb**: Process ssurgo gdb file.
 #### **sites**
   - **process_foi**: Process fields of interest file.  (TODO)

@@ -1,4 +1,3 @@
-
 # Soil Module
 
  In agriculture simulations, such as those conducted using the EPIC model, soil data directly influences water availability, nutrient supply, and overall crop growth predictions. Soil input files to the model contain detailed information about the soil properties of a specific location, depth wise. Geo-Epic helps in generating soil files required by the EPIC Model from two soil data sources: <br>
@@ -8,8 +7,8 @@
 
 ![soilg](./assets/sol.jpg)
 
-# Usage
-### USDA SSURGO
+## Usage
+#### USDA SSURGO
 
 The USDA Soil Survey Geographic **(SSURGO)** database is a comprehensive resource for soil data collected by the Natural Resources Conservation Service **(NRCS)** across the United States and the Territories. This database provides detailed information on soil properties and classifications. The data is collected through extensive field surveys and laboratory analysis. For more detailed information, visit the [USDA NRCS SSURGO](https://www.nrcs.usda.gov/resources/data-and-reports/soil-survey-geographic-database-ssurgo) page.
 
@@ -36,7 +35,7 @@ Link: [https://www.nrcs.usda.gov/resources/data-and-reports/gridded-soil-survey-
 >> geo-epic soil process_gdb -i {path/to/ssurgo.gdb} -o {out_dir} 
 ```
 
-### ISRIC Soil Grids Data
+#### ISRIC Soil Grids Data
 
 The ISRIC Soil Grids 250 meters database is an advanced resource providing high-resolution global soil information. Managed by the International Soil Reference and Information Centre **(ISRIC)**, it uses state-of-the-art machine learning methods to map soil properties across the globe. The prediction models are based on soil profile observations and environmental covariates, including climate, land cover, and terrain morphology. SoilGrids offers soil properties at six standard depth intervals at 250 meters spatial resolution. For more detailed information, visit the [ISRIC Soil Grids](https://www.isric.org/explore/soilgrids) page.
 

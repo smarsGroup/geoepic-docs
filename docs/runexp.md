@@ -1,5 +1,5 @@
 # Running the model
-#### (ToDo)
+#### <ToDo\>
 
 ```python
 from geoEpic import Site, EpicModel
@@ -34,15 +34,25 @@ model.run(site)
 model.close()
 ```
 
-example config file:
+**Example config file:**
+```yml
+# Model details
+EPICModel: ./model/EPIC2301dt20230820
+start_year: 1995
+duration: 25
+output_types:
+  - ACY  # Annual Crop data file
+  - DGN  # Daily general output file
+log_dir: ./log
+output_dir: ./output
 
+```
 
 - To edit the OPC, SOL or files in the epic model folder, you could use the epic_editor. the following command will copy the epiceditor in to your current folder.
 
 ```bash
 >> geo-epic workspace add epic_editor
 ```
-
 
 # Running an EPIC Experiment
 
