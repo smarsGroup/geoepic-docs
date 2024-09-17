@@ -73,6 +73,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#1-configuration-file-breakdown" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -702,6 +707,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Google Earth Engine
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -711,6 +727,89 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-configuration-file-breakdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Configuration file breakdown
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Configuration file breakdown">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#i-global-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      i. Global Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ii-satellite-specific-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      ii. Satellite-Specific Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iii-derived-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      iii. Derived Variables
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-fetching-the-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Fetching the Data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Fetching the Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#i-input-options-fetch" class="md-nav__link">
+    <span class="md-ellipsis">
+      i. Input options(--fetch)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -762,6 +861,80 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-configuration-file-breakdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Configuration file breakdown
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Configuration file breakdown">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#i-global-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      i. Global Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ii-satellite-specific-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      ii. Satellite-Specific Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iii-derived-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      iii. Derived Variables
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-fetching-the-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Fetching the Data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Fetching the Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#i-input-options-fetch" class="md-nav__link">
+    <span class="md-ellipsis">
+      i. Input options(--fetch)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -793,7 +966,82 @@
 
   <h1>Google Earth Engine</h1>
 
-
+<p>Google Earth Engine (GEE) is a cloud-based platform for planetary-scale environmental data analysis. It hosts a vast collection of satellite imagery and other geospatial datasets, enabling users to perform large-scale data analysis.</p>
+<p>This module can be used to extract remote sensing satellite data directly from Google Earth Engine.</p>
+<p><img src="../assets/gee.png" alt="soil" width="80%"/></p>
+<h3 id="1-configuration-file-breakdown">1. Configuration file breakdown</h3>
+<p>This module uses a configuration file to extract data from google earth engine. This configuration file defines the global parameters, satellite collections, and derived variables . Below is a detailed explanation of each section.</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Global parameters</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">global_scope</span><span class="p">:</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">time_range</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;2016-01-01&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;2021-12-31&#39;</span><span class="p p-Indicator">]</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">variables</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;nir&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;red&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;green&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;ndvi&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;lai_ndvi&#39;</span><span class="p p-Indicator">]</span><span class="w">  </span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">resolution</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Specify Earth Engine collections and their respective variables</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">collections</span><span class="p">:</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="nt">le07</span><span class="p">:</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="nt">collection</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LANDSAT/LE07/C02/T1_L2</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="nt">select</span><span class="p">:</span><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">(b(&#39;QA_PIXEL&#39;) &gt;&gt; 6) &amp; 1</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="nt">variables</span><span class="p">:</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">      </span><span class="nt">nir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">b(&#39;SR_B4&#39;)*0.0000275 - 0.2</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">      </span><span class="nt">red</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">b(&#39;SR_B3&#39;)*0.0000275 - 0.2</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">      </span><span class="nt">green</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">b(&#39;SR_B2&#39;)*0.0000275 - 0.2</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="c1"># Derived variables</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="nt">derived_variables</span><span class="p">:</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">  </span><span class="nt">ndvi</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;(nir</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">red)/(nir</span><span class="nv"> </span><span class="s">+</span><span class="nv"> </span><span class="s">red)&#39;</span>
+</span></code></pre></div>
+<h4 id="i-global-parameters">i. Global Parameters</h4>
+<p>The <code>global_scope</code> section contains general settings applicable to the entire data extraction process.</p>
+<ul>
+<li>
+<p><strong><code>time_range</code></strong>: Specifies the period for which the satellite data should be fetched.</p>
+</li>
+<li>
+<p><strong><code>variables</code></strong>: Lists the key variables to be extracted. These are typically satellite bands or derived products such as vegetation indices.</p>
+</li>
+<li>
+<p><strong><code>resolution</code></strong>: Defines the spatial resolution (in meters) for the output data.</p>
+</li>
+</ul>
+<h4 id="ii-satellite-specific-parameters">ii. Satellite-Specific Parameters</h4>
+<p>Each satellite dataset is defined under its own subsection. The key components are <code>collection</code>, <code>select</code>, and <code>variables</code>. Multiple satellite dataset can be given. If data from multiple satellites are present for the same time period, the module will return the mean of the variables across all satellites.</p>
+<ul>
+<li>
+<p><strong><code>collection</code></strong>: Refers to the specific Google Earth Engine dataset for LANDSAT 7.</p>
+</li>
+<li>
+<p><strong><code>select</code></strong>: Defines a masking condition for the data selection.</p>
+</li>
+<li>
+<p><strong><code>variables</code></strong>: Specifies the bands to extract, along with any scaling factors.</p>
+</li>
+</ul>
+<h4 id="iii-derived-variables">iii. Derived Variables</h4>
+<p>Derived variables are calculated from the raw bands using mathematical expressions and functions available in numpy package.</p>
+<hr />
+<h3 id="2-fetching-the-data">2. Fetching the Data</h3>
+<p>You can use the following command line to fetch satellite data from Google Earth Engine and store it in a CSV file:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>geo-epic<span class="w"> </span>gee<span class="w"> </span>&lt;config-file&gt;<span class="w"> </span>--fetch<span class="w"> </span>&lt;input&gt;<span class="w"> </span>--out<span class="w"> </span>&lt;output-path&gt;
+</span></code></pre></div>
+<h4 id="i-input-options-fetch">i. Input options(--fetch)</h4>
+<p>The input for fetching data can be provided in three formats:</p>
+<ul>
+<li><strong>Latitude and Longitude:</strong> Use direct coordinates (latitude and longitude)
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>geo-epic<span class="w"> </span>gee<span class="w"> </span>./landsat_lai.yml<span class="w"> </span>--fetch<span class="w"> </span><span class="m">40</span>.56773135493621<span class="w"> </span><span class="m">98</span>.55058401654036<span class="w"> </span>--out<span class="w"> </span>./out/sample.csv
+</span></code></pre></div></li>
+<li>
+<p><strong>Shapefile (.shp):</strong> A shapefile containing the region of interest. It must contain a SiteID or FieldID column. The data will be stored in the name of FieldID or SiteID.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>geo-epic<span class="w"> </span>gee<span class="w"> </span>./landsat_lai.yml<span class="w"> </span>--fetch<span class="w"> </span>./input/region.shp<span class="w"> </span>--out<span class="w"> </span>./out
+</span></code></pre></div></p>
+</li>
+<li>
+<p><strong>CSV File:</strong> A CSV file must contain a SiteID or FieldID column. Additionally, if using a CSV, it must include lat, lon columns. The data will be stored in the name of FieldID or SiteID.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>geo-epic<span class="w"> </span>gee<span class="w"> </span>./landsat_lai.yml<span class="w"> </span>--fetch<span class="w"> </span>./input/region.csv<span class="w"> </span>--out<span class="w"> </span>./out
+</span></code></pre></div></p>
+</li>
+</ul>
 
 
 
