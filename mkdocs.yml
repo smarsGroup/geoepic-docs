@@ -1,10 +1,10 @@
 ### Site metadata ###
 
-site_name: Geo-Epic
+site_name: GeoEpic
 site_description: Python Utility function to run EPIC model
 site_url: https://smarsgroup.github.io/geoepic-docs/
 
-repo_url: https://github.com/smarsGroup/geoepic-docs
+repo_url: https://github.com/smarsGroup/geo-epic
 
 # site_dir: './site'
 ### Build settings ###
@@ -18,29 +18,74 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.superfences
 
+
 theme:
-  name:  bootstrap4
-  custom_dir: custom
-  suppress_nextprev: false
-  shortcuts:
-    help: 191    # ?
-    next: 78     # n
-    previous: 80 # p
-    search: 83   # s
+  name: material
+  custom_dir: material/overrides
   features:
-    - content.code.select
+    - announce.dismiss
+    - content.action.edit
+    - content.action.view
     - content.code.annotate
+    - content.code.copy
+    - content.tooltips
+    - navigation.footer
+    - navigation.indexes
+    - navigation.sections
+    - navigation.tabs
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+  
+  extra_css:
+  - stylesheets/extra.css
+
+  palette:
+    primary: black #
+    # Palette toggle for dark mode
+    # - media: "(prefers-color-scheme: dark)"
+    #   scheme: slate
+    #   toggle:
+    #     icon: material/brightness-4
+    #     name: Switch to light mode
+
+    # # Palette toggle for light mode
+    # - media: "(prefers-color-scheme: light)"
+    #   scheme: default
+    #   toggle:
+    #     icon: material/brightness-7
+    #     name: Switch to dark mode
+
+    
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: assets/favicon.png
+  icon:
+    logo: logo
+
+# Plugins
+plugins:
+  - blog
+  - search:
+      separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
 
 nav:
-  - Home: index.md
-  - EPIC Model: epic.md
-  - User Guide:
+  - Home:
+    - Getting started: index.md
+    - Installation steps : installation.md
+  - Model:
+    - EPIC Model: epic.md
+    - Model Calibration: opt.md
+    - Running an Experiment: runepic.md
+    - Code in Python: runexp.md
+  - Modules:
     - Crop Sequence Boundaries: csb.md
     - Weather Module: Weather.md
     - Soil Module: Soil.md
     - Crop Management: OPC.md
-  - Quick Start:
-    - Model Calibration: opt.md
-    - Running an Experiment: runepic.md
-    - Code in Python: runexp.md
+    - Google Earth Engine: gee.md
   - API: api.md
