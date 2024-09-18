@@ -794,9 +794,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#i-input-options-fetch" class="md-nav__link">
+  <a href="#i-input-options" class="md-nav__link">
     <span class="md-ellipsis">
-      i. Input options(--fetch)
+      i. Input options
     </span>
   </a>
   
@@ -920,9 +920,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#i-input-options-fetch" class="md-nav__link">
+  <a href="#i-input-options" class="md-nav__link">
     <span class="md-ellipsis">
-      i. Input options(--fetch)
+      i. Input options
     </span>
   </a>
   
@@ -970,27 +970,29 @@
 <p>This module can be used to extract remote sensing satellite data directly from Google Earth Engine.</p>
 <p><img src="../assets/gee.png" alt="soil" width="80%"/></p>
 <h3 id="1-configuration-file-breakdown">1. Configuration file breakdown</h3>
-<p>This module uses a configuration file to extract data from google earth engine. This configuration file defines the global parameters, satellite collections, and derived variables . Below is a detailed explanation of each section.</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Global parameters</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">global_scope</span><span class="p">:</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">time_range</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;2016-01-01&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;2021-12-31&#39;</span><span class="p p-Indicator">]</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">variables</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;nir&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;red&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;green&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;ndvi&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;lai_ndvi&#39;</span><span class="p p-Indicator">]</span><span class="w">  </span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">resolution</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Specify Earth Engine collections and their respective variables</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">collections</span><span class="p">:</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="nt">le07</span><span class="p">:</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="nt">collection</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LANDSAT/LE07/C02/T1_L2</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="nt">select</span><span class="p">:</span><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">(b(&#39;QA_PIXEL&#39;) &gt;&gt; 6) &amp; 1</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="nt">variables</span><span class="p">:</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">      </span><span class="nt">nir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">b(&#39;SR_B4&#39;)*0.0000275 - 0.2</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">      </span><span class="nt">red</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">b(&#39;SR_B3&#39;)*0.0000275 - 0.2</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">      </span><span class="nt">green</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">b(&#39;SR_B2&#39;)*0.0000275 - 0.2</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="c1"># Derived variables</span>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="nt">derived_variables</span><span class="p">:</span>
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">  </span><span class="nt">ndvi</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;(nir</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">red)/(nir</span><span class="nv"> </span><span class="s">+</span><span class="nv"> </span><span class="s">red)&#39;</span>
+<p>This module uses a configuration file in yaml format to extract data from google earth engine. This configuration file defines the global parameters, satellite collections, and derived variables . Below is a detailed explanation of each section.</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># filename: config.yml</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Global parameters</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">global_scope</span><span class="p">:</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">time_range</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;2016-01-01&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;2021-12-31&#39;</span><span class="p p-Indicator">]</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="nt">variables</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;nir&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;red&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;green&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;ndvi&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;lai_ndvi&#39;</span><span class="p p-Indicator">]</span><span class="w">  </span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="nt">resolution</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># Specify Earth Engine collections and their respective variables</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">collections</span><span class="p">:</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="nt">le07</span><span class="p">:</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="nt">collection</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LANDSAT/LE07/C02/T1_L2</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="nt">select</span><span class="p">:</span><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">(b(&#39;QA_PIXEL&#39;) &gt;&gt; 6) &amp; 1</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="nt">variables</span><span class="p">:</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">      </span><span class="nt">nir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">b(&#39;SR_B4&#39;)*0.0000275 - 0.2</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">      </span><span class="nt">red</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">b(&#39;SR_B3&#39;)*0.0000275 - 0.2</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">      </span><span class="nt">green</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">b(&#39;SR_B2&#39;)*0.0000275 - 0.2</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="c1"># Derived variables</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="nt">derived_variables</span><span class="p">:</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">  </span><span class="nt">ndvi</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;(nir</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">red)/(nir</span><span class="nv"> </span><span class="s">+</span><span class="nv"> </span><span class="s">red)&#39;</span>
 </span></code></pre></div>
 <h4 id="i-global-parameters">i. Global Parameters</h4>
 <p>The <code>global_scope</code> section contains general settings applicable to the entire data extraction process.</p>
@@ -1025,7 +1027,7 @@
 <p>You can use the following command line to fetch satellite data from Google Earth Engine and store it in a CSV file:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>geo-epic<span class="w"> </span>gee<span class="w"> </span>&lt;config-file&gt;<span class="w"> </span>--fetch<span class="w"> </span>&lt;input&gt;<span class="w"> </span>--out<span class="w"> </span>&lt;output-path&gt;
 </span></code></pre></div>
-<h4 id="i-input-options-fetch">i. Input options(--fetch)</h4>
+<h4 id="i-input-options">i. Input options</h4>
 <p>The input for fetching data can be provided in three formats:</p>
 <ul>
 <li><strong>Latitude and Longitude:</strong> Use direct coordinates (latitude and longitude)
