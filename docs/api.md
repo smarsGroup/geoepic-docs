@@ -1,16 +1,15 @@
 
-
 ## Commands Available
 ### (ToDo)
 
-Geo-Epic allows you to run various commands. The structure is as show below:
+GeoEPIC allows you to run various commands. The structure is as show below:
 
 ```bash
-geo-epic {module} {func} -options
+GeoEPIC {module} {func} -options
 ```
 example usage:
 ```bash
-geo-epic workspace new -w Test
+GeoEPIC workspace new -w Test
 ```
 ### List of Modules and Functions:
 
@@ -34,5 +33,5 @@ geo-epic workspace new -w Test
 
 For more details on each command and its options, use:
 ```bash
-geo-epic {module} {func} --help
+GeoEPIC {module} {func} --help
 ```

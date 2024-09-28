@@ -1,10 +1,10 @@
 ### Site metadata ###
 
-site_name: GeoEpic
+site_name: GeoEPIC
 site_description: Python Utility function to run EPIC model
 site_url: https://smarsgroup.github.io/geoepic-docs/
 
-repo_url: https://github.com/smarsGroup/geo-epic
+repo_url: https://github.com/smarsGroup/GeoEPIC
 
 # site_dir: './site'
 ### Build settings ###
@@ -21,11 +21,11 @@ markdown_extensions:
 
 theme:
   name: material
-  custom_dir: material/overrides
+  # custom_dir: material/overrides
   features:
     - announce.dismiss
-    - content.action.edit
-    - content.action.view
+    # - content.action.edit
+    # - content.action.view
     - content.code.annotate
     - content.code.copy
     - content.tooltips
@@ -45,14 +45,14 @@ theme:
 
   palette:
     primary: black #
-    # Palette toggle for dark mode
-    # - media: "(prefers-color-scheme: dark)"
+    # # Palette toggle for dark mode
+    # media: "(prefers-color-scheme: dark)"
     #   scheme: slate
     #   toggle:
     #     icon: material/brightness-4
     #     name: Switch to light mode
 
-    # # Palette toggle for light mode
+    # Palette toggle for light mode
     # - media: "(prefers-color-scheme: light)"
     #   scheme: default
     #   toggle:
@@ -66,6 +66,7 @@ theme:
   favicon: assets/favicon.png
   icon:
     logo: logo
+    repo: fontawesome/brands/github
 
 # Plugins
 plugins:
@@ -75,17 +76,18 @@ plugins:
 
 nav:
   - Home:
-    - Getting started: index.md
-    - Installation steps : installation.md
-  - Model:
-    - EPIC Model: epic.md
-    - Model Calibration: opt.md
-    - Running an Experiment: runepic.md
-    - Code in Python: runexp.md
+    - Overview: index.md
+    - Installation: installation.md
+  - EPIC Model:
+    - Environmental Policy Integrated Climate Model: epic.md
   - Modules:
     - Crop Sequence Boundaries: csb.md
     - Weather Module: Weather.md
     - Soil Module: Soil.md
     - Crop Management: OPC.md
-    - Google Earth Engine: gee.md
+    - Google Earth Engine Utility: gee.md
+  - Getting Started:
+    - Running an Experiment: runepic.md
+    - Model Calibration: opt.md
+    - Code in Python: runexp.md
   - API: api.md

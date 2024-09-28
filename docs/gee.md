@@ -63,7 +63,7 @@ Derived variables are calculated from the raw bands using mathematical expressio
 You can use the following command line to fetch satellite data from Google Earth Engine and store it in a CSV file:
 
 ```bash
-geo-epic gee <config-file> --fetch <input> --out <output-path>
+GeoEPIC gee <config-file> --fetch <input> --out <output-path>
 ```
 
 #### i. Input options
@@ -72,14 +72,14 @@ The input for fetching data can be provided in three formats:
 
    - **Latitude and Longitude:** Use direct coordinates (latitude and longitude)
 ```bash
-geo-epic gee ./landsat_lai.yml --fetch 40.56773135493621 98.55058401654036 --out ./out/sample.csv
+GeoEPIC gee ./landsat_lai.yml --fetch 40.56773135493621 98.55058401654036 --out ./out/sample.csv
 ```
    - **Shapefile (.shp):** A shapefile containing the region of interest. It must contain a SiteID or FieldID column. The data will be stored in the name of FieldID or SiteID.
 ```bash
-geo-epic gee ./landsat_lai.yml --fetch ./input/region.shp --out ./out
+GeoEPIC gee ./landsat_lai.yml --fetch ./input/region.shp --out ./out
 ```
 
    - **CSV File:** A CSV file must contain a SiteID or FieldID column. Additionally, if using a CSV, it must include lat, lon columns. The data will be stored in the name of FieldID or SiteID.
 ```bash
-geo-epic gee ./landsat_lai.yml --fetch ./input/region.csv --out ./out
+GeoEPIC gee ./landsat_lai.yml --fetch ./input/region.csv --out ./out
 ```
