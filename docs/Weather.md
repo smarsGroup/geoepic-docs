@@ -12,7 +12,7 @@ GeoEPIC streamlines the process of fetching and organizing weather data essentia
 
 
 #### Using GEE collections
-GeoEPIC allows the integration of weather and climate data sources on GEE. To explore the datasets, visit [Google Earth Engine's dataset catalog](https://developers.google.com/earth-engine/datasets/) and [GEE Community Catalog](https://gee-community-catalog.org/projects/agera5_datasets/). Private assets can also be uploaded to Earth Engine, to use them in combination with existing datasets. Below is an example of configuration file that can be used to create weather input files.
+GeoEPIC allows the integration of various weather and climate data sources on GEE. To explore the available datasets, visit [Google Earth Engine's dataset catalog](https://developers.google.com/earth-engine/datasets/) and [GEE Community Catalog](https://gee-community-catalog.org/projects/agera5_datasets/). Private assets can also be uploaded to Earth Engine, to use them in combination with existing datasets. Below is an example of configuration file that can be used to create weather input files.
 
 **Example config files:**
 
