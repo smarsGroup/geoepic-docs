@@ -1,16 +1,32 @@
 
 # GeoEPIC
 
-A toolkit for geospatial crop simulations using EPIC model
+###<strong>A toolkit for geospatial Crop Simulations</strong>
 
 
 <img src="./assets/Yield_MD.png" alt="Maryland_Yield" width="90%"/> 
-<!-- !['Maryland_Yield'](./assets/Yield_MD.png) -->
-
-### <strong>Overview</strong>
+<!-- ### <strong>Overview</strong> -->
 
 This package expands the capabilities of the **EPIC crop simulation model**, to simulate crop growth and development across large geographies, such as entire states or counties by leveraging openly availabe remote sensing products and geospatial databases. Additionally, the toolkit features a unique calibration module that allows fine-tuning of model parameters to reflect specific local conditions or experimental results. This toolkit allows researchers to assess crop production potential, management scenarios and risks at broader scales, informing decision-making for sustainable agricultural practices.
 
+
+
+<!-- !['Maryland_Yield'](./assets/Yield_MD.png) -->
+
+### <strong>Installation</strong>
+
+Before starting the setup, ensure you have [`wget`](https://cloudcone.com/docs/article/the-linux-wget-command/) and [`conda`](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html) installed. Follow the links for corresponding installation guides. Find the detailed instructions in the setup section.
+
+```bash
+conda create --name epic_env python=3.11.9
+
+```
+```bash
+conda activate epic_env
+```
+```bash
+pip install git+https://github.com/smarsGroup/geo-epic.git
+```
 
 <!-- 
 ### <strong>Getting Started</strong>
@@ -24,7 +40,7 @@ To begin using GeoEPIC:
 
 For detailed instructions, visit the [Getting Started](index.md) section. -->
 
-<!-- ### <strong>Applications and Integrations</strong> -->
+### <strong>Use Cases</strong>
 <!-- 
 GeoEPIC has been adopted in various research projects and integrated into several tools: -->
 
@@ -36,4 +52,6 @@ GeoEPIC has been adopted in various research projects and integrated into severa
   - **AgriTech Solutions**: Integration of GeoEPIC into precision agriculture tools. -->
 
 
-<strong>Contributors:</strong> Bharath Irigireddy, Sachin Velmurgan 
+### <strong>Contributors</strong>
+
+- Bharath Irigireddy, Varaprasad Bandaru, Sachin Velmurgan, Rohit Nandan, SMaRS Group

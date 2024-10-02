@@ -4,7 +4,7 @@ site_name: GeoEPIC
 site_description: Python Utility function to run EPIC model
 site_url: https://smarsgroup.github.io/geoepic-docs/
 
-repo_url: https://github.com/smarsGroup/GeoEPIC
+repo_url: https://github.com/smarsGroup/geo-epic
 
 # site_dir: './site'
 ### Build settings ###
@@ -21,7 +21,7 @@ markdown_extensions:
 
 theme:
   name: material
-  # custom_dir: material/overrides
+  # custom_dir: custom
   features:
     - announce.dismiss
     # - content.action.edit
@@ -41,7 +41,7 @@ theme:
     - toc.follow
   
   extra_css:
-  - stylesheets/extra.css
+  - extra.css
 
   palette:
     primary: black #
@@ -63,7 +63,7 @@ theme:
   font:
     text: Roboto
     code: Roboto Mono
-  favicon: assets/favicon.png
+  favicon: assets/logo.png
   icon:
     logo: logo
     repo: fontawesome/brands/github
@@ -77,7 +77,7 @@ plugins:
 nav:
   - Home:
     - Overview: index.md
-    - Installation: installation.md
+    - Setup: installation.md
   - EPIC Model:
     - Environmental Policy Integrated Climate Model: epic.md
   - Modules:
@@ -87,7 +87,7 @@ nav:
     - Crop Management: OPC.md
     - Google Earth Engine Utility: gee.md
   - Getting Started:
-    - Running an Experiment: runepic.md
-    - Model Calibration: opt.md
     - Code in Python: runexp.md
+    - Model Calibration: opt.md
+    - Running an Experiment: runepic.md
   - API: api.md
