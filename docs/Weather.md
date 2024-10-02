@@ -1,4 +1,4 @@
-## Weather Module
+# Weather Module
 
 <!-- ![weather](./assets/fg.jpg) -->
 <img src="../assets/fg.jpg" alt="weather" width="90%"/>
@@ -8,11 +8,11 @@ Weather data is vital in providing essential environmental inputs that significa
 
 ### Fetching Weather Data
 
-Geo-Epic streamlines the process of fetching and organizing weather data essential for EPIC simulations. It supports the creation of weather input files from daymet, and also from sophisticated datasets available through Google Earth Engine. One can define a composite collection in the config file, detailing the specific variables to select from each data source, tailoring the dataset to meet the needs of their simulations. 
+GeoEPIC streamlines the process of fetching and organizing weather data essential for EPIC simulations. It supports the creation of weather input files from daymet, and also from sophisticated datasets available through Google Earth Engine. One can define a composite collection in the config file, detailing the specific variables to select from each data source, tailoring the dataset to meet the needs of their simulations. 
 
 
 #### Using GEE collections
-Geo-epic allows the integration of weather and climate data sources on GEE. To explore the datasets, visit [Google Earth Engine's dataset catalog](https://developers.google.com/earth-engine/datasets/) and [GEE Community Catalog](https://gee-community-catalog.org/projects/agera5_datasets/). Private assets can also be uploaded to Earth Engine, to use them in combination with existing datasets. Below is an example of configuration file that can be used to create weather input files.
+GeoEPIC allows the integration of various weather and climate data sources on GEE. To explore the available datasets, visit [Google Earth Engine's dataset catalog](https://developers.google.com/earth-engine/datasets/) and [GEE Community Catalog](https://gee-community-catalog.org/projects/agera5_datasets/). Private assets can also be uploaded to Earth Engine, to use them in combination with existing datasets. Below is an example of configuration file that can be used to create weather input files.
 
 **Example config files:**
 
@@ -77,13 +77,13 @@ derived_variables:
 
 ```
 # Fetch and output weather input files for a specific latitude and longitude
->> geo-epic weather config.yml --fetch {lat} {lon} --out {out_path}
+>> GeoEPIC weather config.yml --fetch {lat} {lon} --out {out_path}
 
 # Fetch for a list of locations in a csv file with lat, lon, out_path columns
->> geo-epic weather config.yml --fetch {list.csv} --out {column_name}
+>> GeoEPIC weather config.yml --fetch {list.csv} --out {column_name}
 
 # Fetch for crop sequence boundaries shape file.
->> geo-epic weather config.yml --fetch {aoi_csb.shp} --out {out_dir}
+>> GeoEPIC weather config.yml --fetch {aoi_csb.shp} --out {out_dir}
 ```
 
 **Note:** This command will write weather grid IDs corresponding to each location as an attribute into the input file, when used with a CSV file or crop sequence boundary shapefile.
@@ -94,10 +94,10 @@ To fetch weather data for a specific latitude and longitude using the Daymet dat
 
 ```bash
 # To download windspeed data, use the following command
->> geo-epic weather windspeed -bbox <bounding_box> -start <start_date> -end <end_date> -out './weather'
+>> GeoEPIC weather windspeed -bbox <bounding_box> -start <start_date> -end <end_date> -out './weather'
 
 # To fetch and output weather input files for a specific latitude and longitude
->> geo-epic weather daymet --fetch {lat} {lon} -start <start_date> -end <end_date> --out './weather'
+>> GeoEPIC weather daymet --fetch {lat} {lon} -start <start_date> -end <end_date> --out './weather'
 ```
 
 <!-- 

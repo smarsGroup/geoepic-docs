@@ -52,5 +52,5 @@ output_dir: ./output
 - To edit the OPC, SOL or files in the epic model folder, you could use the epic_editor. the following command will copy the epiceditor in to your current folder.
 
 ```bash
->> geo-epic workspace add epic_editor
+>> GeoEPIC workspace add epic_editor
 ```
