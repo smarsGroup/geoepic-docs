@@ -2,7 +2,7 @@
 
 ### 1. Create new workspace
 ```bash
-epic_pkg workspace new -w Test
+geo_epic workspace new -w Test
 cd Test
 ```
 It willl create a new workspace in the new directory named 'Test'. This 'Test' folder will automatically create sub-folders for EPIC model like model, opc, sites, soil, weather and a config.yml doc in it. You need to to go to Test folder before simulation starts.
@@ -31,14 +31,14 @@ OPC refers to the agricultural management practice files which is yet to automat
 
 ### 4. Prepare the workspace
 ```bash
-epic_pkg workspace prepare
+geo_epic workspace prepare
 ```
 This command will automatically pre-process the input files before simulation.
 
 
 ### 5. And execute the simulations
 ```bash
-epic_pkg workspace run
+geo_epic workspace run
 ```
 This command will simulate the operation/s and automatically save the results in a new folder named 'Output'. 
 

@@ -80,13 +80,13 @@ nav:
     - Installation: installation.md
   - EPIC Model:
     - Environmental Policy Integrated Climate Model: epic.md
-  - Modules:
-    - Crop Sequence Boundaries: csb.md
+  - Getting Started:
+    - Homogeneous Land Units: csb.md
     - Weather Module: Weather.md
     - Soil Module: Soil.md
     - Crop Management: OPC.md
     - Google Earth Engine Utility: gee.md
-  - Getting Started:
+  - Tutorials:
     - Code in Python: runexp.md
     - Model Calibration: opt.md
     - Running an Experiment: runepic.md

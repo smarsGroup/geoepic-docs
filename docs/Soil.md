@@ -17,13 +17,15 @@ To fetch and output soil files using the USDA SSURGO database, following command
 
 ```bash
 # Fetch and output soil files for a specific latitude and longitude
->> GeoEPIC soil usda --fetch {lat} {lon} --out {out_path}
-
+>> geo_epic soil usda --fetch {lat} {lon} --out {out_path}
+```
+```bash
 # Fetch for a list of locations in a csv file with lat, lon
->> GeoEPIC soil usda --fetch {list.csv} --out {out_dir}
-
+>> geo_epic soil usda --fetch {list.csv} --out {out_dir}
+```
+```bash
 # Fetch for crop sequence boundaries shape file.
->> GeoEPIC soil usda --fetch {aoi_csb.shp} --out {out_dir}
+>> geo_epic soil usda --fetch {aoi_csb.shp} --out {out_dir}
 ```
 
 **Note:** This command will write Soil IDs (mukeys) corresponding to each location as an attribute into the input file, when used with a CSV file or crop sequence boundary shapefile.
@@ -35,7 +37,7 @@ To process a SSURGO GDB file and generate soil files for all unique soils contai
 Link: [https://www.nrcs.usda.gov/resources/data-and-reports/gridded-soil-survey-geographic-gssurgo-database](https://www.nrcs.usda.gov/resources/data-and-reports/gridded-soil-survey-geographic-gssurgo-database)
 
 ```bash
->> GeoEPIC soil process_gdb -i {path/to/ssurgo.gdb} -o {out_dir} 
+>> geo_epic soil process_gdb -i {path/to/ssurgo.gdb} -o {out_dir} 
 ```
 
 #### ISRIC Soil Grids Data
@@ -47,10 +49,11 @@ The ISRIC Soil Grids 250 meters database is an advanced resource providing high-
 To fetch and output soil files using the ISRIC Soil Grids 250 meters database, you can use the following commands.
 ```bash
 # Fetch and output soil files for a specific latitude and longitude
->> GeoEPIC soil soilgrids --fetch {lat} {lon} --out {out_path}
-
+>> geo_epic soil soilgrids --fetch {lat} {lon} --out {out_path}
+```
+```bash
 # Fetch for a list of locations in a csv file with lat, lon, out_path columns
->> GeoEPIC soil soilgrids --fetch {list.csv} --out {column_name}
+>> geo_epic soil soilgrids --fetch {list.csv} --out {column_name}
 ```
 
 Once the tool finishes running, you should see files named {out_name}.SOL in your specified output directory. Open this file to verify that it contains the necessary soil data formatted correctly for use in the EPIC model.

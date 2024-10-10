@@ -5,11 +5,11 @@
 GeoEPIC allows you to run various commands. The structure is as show below:
 
 ```bash
-GeoEPIC {module} {func} -options
+geo_epic {module} {func} -options
 ```
 example usage:
 ```bash
-GeoEPIC workspace new -w Test
+geo_epic workspace new -w Test
 ```
 ### List of Modules and Functions:
 
@@ -33,5 +33,5 @@ GeoEPIC workspace new -w Test
 
 For more details on each command and its options, use:
 ```bash
-GeoEPIC {module} {func} --help
+geo_epic {module} {func} --help
 ```
