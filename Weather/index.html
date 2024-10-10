@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../assets/logo.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.38">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.35f28582.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -250,7 +250,7 @@
   
     
   
-  Modules
+  Getting Started
 
         </a>
       </li>
@@ -270,7 +270,7 @@
   
     
   
-  Getting Started
+  Tutorials
 
         </a>
       </li>
@@ -546,7 +546,7 @@
             
   
   <span class="md-ellipsis">
-    Modules
+    Getting Started
   </span>
   
 
@@ -556,7 +556,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Modules
+            Getting Started
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -571,7 +571,7 @@
         
   
   <span class="md-ellipsis">
-    Crop Sequence Boundaries
+    Homogeneous Land Units
   </span>
   
 
@@ -779,7 +779,7 @@
             
   
   <span class="md-ellipsis">
-    Getting Started
+    Tutorials
   </span>
   
 
@@ -789,7 +789,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Getting Started
+            Tutorials
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1023,24 +1023,24 @@
  -->
 
 <p><strong>Using the config file to get data:</strong></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a># Fetch and output weather input files for a specific latitude and longitude
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>&gt;&gt; GeoEPIC weather config.yml --fetch {lat} {lon} --out {out_path}
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a># Fetch for a list of locations in a csv file with lat, lon, out_path columns
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>&gt;&gt; GeoEPIC weather config.yml --fetch {list.csv} --out {column_name}
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a># Fetch for crop sequence boundaries shape file.
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>&gt;&gt; GeoEPIC weather config.yml --fetch {aoi_csb.shp} --out {out_dir}
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a># Fetch and output weather input files for a specific latitude and longitude
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>&gt;&gt; geo_epic weather config.yml --fetch {lat} {lon} --out {out_path}
 </span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Fetch for a list of locations in a csv file with lat, lon, out_path columns</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>&gt;&gt;<span class="w"> </span>geo_epic<span class="w"> </span>weather<span class="w"> </span>config.yml<span class="w"> </span>--fetch<span class="w"> </span><span class="o">{</span>list.csv<span class="o">}</span><span class="w"> </span>--out<span class="w"> </span><span class="o">{</span>column_name<span class="o">}</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Fetch for crop sequence boundaries shape file.</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>&gt;&gt;<span class="w"> </span>geo_epic<span class="w"> </span>weather<span class="w"> </span>config.yml<span class="w"> </span>--fetch<span class="w"> </span><span class="o">{</span>aoi_csb.shp<span class="o">}</span><span class="w"> </span>--out<span class="w"> </span><span class="o">{</span>out_dir<span class="o">}</span>
+</span></code></pre></div></p>
 <p><strong>Note:</strong> This command will write weather grid IDs corresponding to each location as an attribute into the input file, when used with a CSV file or crop sequence boundary shapefile.</p>
 <h4 id="from-daymet-and-nldas">From Daymet and NLDAS</h4>
 <p>To fetch weather data for a specific latitude and longitude using the Daymet dataset, start by downloading the windspeed data from the NLDAS dataset and saving it to the specified directory. Afterward, fetch the other required weather data from the Daymet dataset.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># To download windspeed data, use the following command</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>&gt;&gt;<span class="w"> </span>GeoEPIC<span class="w"> </span>weather<span class="w"> </span>windspeed<span class="w"> </span>-bbox<span class="w"> </span>&lt;bounding_box&gt;<span class="w"> </span>-start<span class="w"> </span>&lt;start_date&gt;<span class="w"> </span>-end<span class="w"> </span>&lt;end_date&gt;<span class="w"> </span>-out<span class="w"> </span><span class="s1">&#39;./weather&#39;</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># To fetch and output weather input files for a specific latitude and longitude</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>&gt;&gt;<span class="w"> </span>GeoEPIC<span class="w"> </span>weather<span class="w"> </span>daymet<span class="w"> </span>--fetch<span class="w"> </span><span class="o">{</span>lat<span class="o">}</span><span class="w"> </span><span class="o">{</span>lon<span class="o">}</span><span class="w"> </span>-start<span class="w"> </span>&lt;start_date&gt;<span class="w"> </span>-end<span class="w"> </span>&lt;end_date&gt;<span class="w"> </span>--out<span class="w"> </span><span class="s1">&#39;./weather&#39;</span>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># To download windspeed data, use the following command</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>&gt;&gt;<span class="w"> </span>geo_epic<span class="w"> </span>weather<span class="w"> </span>windspeed<span class="w"> </span>-bbox<span class="w"> </span>&lt;bounding_box&gt;<span class="w"> </span>-start<span class="w"> </span>&lt;start_date&gt;<span class="w"> </span>-end<span class="w"> </span>&lt;end_date&gt;<span class="w"> </span>-out<span class="w"> </span><span class="s1">&#39;./weather&#39;</span>
 </span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># To fetch and output weather input files for a specific latitude and longitude</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>&gt;&gt;<span class="w"> </span>geo_epic<span class="w"> </span>weather<span class="w"> </span>daymet<span class="w"> </span>--fetch<span class="w"> </span><span class="o">{</span>lat<span class="o">}</span><span class="w"> </span><span class="o">{</span>lon<span class="o">}</span><span class="w"> </span>-start<span class="w"> </span>&lt;start_date&gt;<span class="w"> </span>-end<span class="w"> </span>&lt;end_date&gt;<span class="w"> </span>--out<span class="w"> </span><span class="s1">&#39;./weather&#39;</span>
+</span></code></pre></div></p>
 <!-- 
 
 ### Sources
@@ -1082,7 +1082,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../csb/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Crop Sequence Boundaries">
+          <a href="../csb/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Homogeneous Land Units">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1092,7 +1092,7 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Crop Sequence Boundaries
+                Homogeneous Land Units
               </div>
             </div>
           </a>
@@ -1139,10 +1139,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.56dfad97.min.js"></script>
+      <script src="../assets/javascripts/bundle.d6f25eb3.min.js"></script>
       
     
   </body>

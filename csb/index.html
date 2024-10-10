@@ -20,15 +20,15 @@
       
       
       <link rel="icon" href="../assets/logo.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.38">
     
     
       
-        <title>Crop Sequence Boundaries - GeoEPIC</title>
+        <title>Homogeneous Land Units - GeoEPIC</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.35f28582.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#obtaining-the-csb-dataset" class="md-skip">
+        <a href="#crop-sequence-boundaries" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Crop Sequence Boundaries
+              Homogeneous Land Units
             
           </span>
         </div>
@@ -250,7 +250,7 @@
   
     
   
-  Modules
+  Getting Started
 
         </a>
       </li>
@@ -270,7 +270,7 @@
   
     
   
-  Getting Started
+  Tutorials
 
         </a>
       </li>
@@ -546,7 +546,7 @@
             
   
   <span class="md-ellipsis">
-    Modules
+    Getting Started
   </span>
   
 
@@ -556,7 +556,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Modules
+            Getting Started
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -578,7 +578,7 @@
           
   
   <span class="md-ellipsis">
-    Crop Sequence Boundaries
+    Homogeneous Land Units
   </span>
   
 
@@ -589,7 +589,7 @@
         
   
   <span class="md-ellipsis">
-    Crop Sequence Boundaries
+    Homogeneous Land Units
   </span>
   
 
@@ -607,6 +607,15 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#crop-sequence-boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Crop Sequence Boundaries
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#obtaining-the-csb-dataset" class="md-nav__link">
@@ -766,7 +775,7 @@
             
   
   <span class="md-ellipsis">
-    Getting Started
+    Tutorials
   </span>
   
 
@@ -776,7 +785,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Getting Started
+            Tutorials
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -895,6 +904,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#crop-sequence-boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Crop Sequence Boundaries
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#obtaining-the-csb-dataset" class="md-nav__link">
     <span class="md-ellipsis">
       Obtaining the CSB dataset
@@ -936,11 +954,13 @@
   
 
 
-  <h1>Crop Sequence Boundaries</h1>
+  <h1>Homogeneous Land Units</h1>
 
 <!-- ## Crop Sequence Boundaries -->
 
-<p>For effective simulations using the <strong>EPIC</strong> model, it is essential to have land units that are characterized by uniform soil properties and consistent management practices. One way to achieve this for the USA is by utilizing the Crop Sequence Boundaries (CSB) dataset. The CSB dataset is derived by analyzing annual variations in the USDA's Cropland Data Layer (CDL). The CSB method involves identifying and demarcating the boundaries of agricultural fields that have maintained consistent crop rotation sequence over several years. </p>
+<p>For effective simulations using the <strong>EPIC</strong> model, it is essential to have land units that are characterized by uniform soil properties and consistent management practices. One way to achieve this for the USA is by utilizing the Crop Sequence Boundaries (CSB) dataset.</p>
+<h2 id="crop-sequence-boundaries">Crop Sequence Boundaries</h2>
+<p>The CSB dataset is derived by analyzing annual variations in the USDA's Cropland Data Layer (CDL). The CSB method involves identifying and demarcating the boundaries of agricultural fields that have maintained consistent crop rotation sequence over several years. </p>
 <p><img src="../assets/csb.png" alt="CSB" width="65%"/></p>
 <!-- ![CSb](./assets/csb.png) -->
 
@@ -953,22 +973,22 @@ Hunt, K. A., Abernethy, J., Beeson, P., Bowman, M., Wallander, S., &amp; William
 <p>GeoEPIC comes with a command-line tool to filter and clip the CSB file for your specific region of interest.
 The tool can be invoked with various options to specify the region:
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Help with the options provided by the tool</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>&gt;&gt;<span class="w"> </span>GeoEPIC<span class="w"> </span>crop_csb<span class="w"> </span>-h
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Cropping the csb to get the shapefile for Maryland:</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>&gt;&gt;<span class="w"> </span>GeoEPIC<span class="w"> </span>crop_csb<span class="w"> </span>path/to/input.gdb<span class="w"> </span>output.shp<span class="w"> </span>--state_name<span class="w"> </span><span class="s2">&quot;Maryland&quot;</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Using the state FIPS code (24) for Maryland:</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>&gt;&gt;<span class="w"> </span>GeoEPIC<span class="w"> </span>crop_csb<span class="w"> </span>path/to/input.gdb<span class="w"> </span>output.shp<span class="w"> </span>--state_fips<span class="w"> </span><span class="s2">&quot;24&quot;</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># To get the shapefile for Montgomery County, Maryland:</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>&gt;&gt;<span class="w"> </span>GeoEPIC<span class="w"> </span>crop_csb<span class="w"> </span>path/to/input.gdb<span class="w"> </span>output.shp<span class="w"> </span>--county_name<span class="w"> </span><span class="s2">&quot;Montgomery, Maryland&quot;</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1"># Cropping the CSB using a bounding box:</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>&gt;&gt;<span class="w"> </span>GeoEPIC<span class="w"> </span>crop_csb<span class="w"> </span>path/to/input.gdb<span class="w"> </span>output.shp<span class="w"> </span>--bbox<span class="w"> </span><span class="s2">&quot;-77.5,38.0,-76.0,39.5&quot;</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="c1"># Cropping the csb around a center point with a specified extent in km:</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>&gt;&gt;<span class="w"> </span>GeoEPIC<span class="w"> </span>crop_csb<span class="w"> </span>path/to/input.gdb<span class="w"> </span>output.shp<span class="w"> </span>--center<span class="w"> </span><span class="s2">&quot;39.0,-77.0&quot;</span><span class="w"> </span>--extent<span class="w"> </span><span class="s2">&quot;50x50&quot;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>&gt;&gt;<span class="w"> </span>geo_epic<span class="w"> </span>crop_csb<span class="w"> </span>-h
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Cropping the csb to get the shapefile for Maryland:</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>&gt;&gt;<span class="w"> </span>geo_epic<span class="w"> </span>crop_csb<span class="w"> </span>path/to/input.gdb<span class="w"> </span>output.shp<span class="w"> </span>--state_name<span class="w"> </span><span class="s2">&quot;Maryland&quot;</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Using the state FIPS code (24) for Maryland:</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>&gt;&gt;<span class="w"> </span>geo_epic<span class="w"> </span>crop_csb<span class="w"> </span>path/to/input.gdb<span class="w"> </span>output.shp<span class="w"> </span>--state_fips<span class="w"> </span><span class="s2">&quot;24&quot;</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># To get the shapefile for Montgomery County, Maryland:</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>&gt;&gt;<span class="w"> </span>geo_epic<span class="w"> </span>crop_csb<span class="w"> </span>path/to/input.gdb<span class="w"> </span>output.shp<span class="w"> </span>--county_name<span class="w"> </span><span class="s2">&quot;Montgomery, Maryland&quot;</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Cropping the CSB using a bounding box:</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>&gt;&gt;<span class="w"> </span>geo_epic<span class="w"> </span>crop_csb<span class="w"> </span>path/to/input.gdb<span class="w"> </span>output.shp<span class="w"> </span>--bbox<span class="w"> </span><span class="s2">&quot;-77.5,38.0,-76.0,39.5&quot;</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Cropping the csb around a center point with a specified extent in km:</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>&gt;&gt;<span class="w"> </span>geo_epic<span class="w"> </span>crop_csb<span class="w"> </span>path/to/input.gdb<span class="w"> </span>output.shp<span class="w"> </span>--center<span class="w"> </span><span class="s2">&quot;39.0,-77.0&quot;</span><span class="w"> </span>--extent<span class="w"> </span><span class="s2">&quot;50x50&quot;</span>
 </span></code></pre></div></p>
 <p><strong>Note:</strong> For <strong>countries other than USA</strong>, a geo-tiff file covering the region of interest with one channel being the cultivated crop land mask of that region and another channel containing corresponding management info ID can be used to utilize GeoEPIC.</p>
 
@@ -1063,10 +1083,10 @@ The tool can be invoked with various options to specify the region:
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.56dfad97.min.js"></script>
+      <script src="../assets/javascripts/bundle.d6f25eb3.min.js"></script>
       
     
   </body>

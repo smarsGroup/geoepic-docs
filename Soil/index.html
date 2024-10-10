@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../assets/logo.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.38">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.35f28582.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -250,7 +250,7 @@
   
     
   
-  Modules
+  Getting Started
 
         </a>
       </li>
@@ -270,7 +270,7 @@
   
     
   
-  Getting Started
+  Tutorials
 
         </a>
       </li>
@@ -546,7 +546,7 @@
             
   
   <span class="md-ellipsis">
-    Modules
+    Getting Started
   </span>
   
 
@@ -556,7 +556,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Modules
+            Getting Started
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -571,7 +571,7 @@
         
   
   <span class="md-ellipsis">
-    Crop Sequence Boundaries
+    Homogeneous Land Units
   </span>
   
 
@@ -779,7 +779,7 @@
             
   
   <span class="md-ellipsis">
-    Getting Started
+    Tutorials
   </span>
   
 
@@ -789,7 +789,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Getting Started
+            Tutorials
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -972,30 +972,30 @@
 <h4 id="usda-ssurgo">USDA SSURGO</h4>
 <p>The USDA Soil Survey Geographic <strong>(SSURGO)</strong> database is a comprehensive resource for soil data collected by the Natural Resources Conservation Service <strong>(NRCS)</strong> across the United States and the Territories. This database provides detailed information on soil properties and classifications. The data is collected through extensive field surveys and laboratory analysis. For more detailed information, visit the <a href="https://www.nrcs.usda.gov/resources/data-and-reports/soil-survey-geographic-database-ssurgo">USDA NRCS SSURGO</a> page.</p>
 <p>To fetch and output soil files using the USDA SSURGO database, following commands could be used. For a specific location, specify the latitude and longitude coordinates to generate a soil file named {mukey}.SOL. </p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Fetch and output soil files for a specific latitude and longitude</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>&gt;&gt;<span class="w"> </span>GeoEPIC<span class="w"> </span>soil<span class="w"> </span>usda<span class="w"> </span>--fetch<span class="w"> </span><span class="o">{</span>lat<span class="o">}</span><span class="w"> </span><span class="o">{</span>lon<span class="o">}</span><span class="w"> </span>--out<span class="w"> </span><span class="o">{</span>out_path<span class="o">}</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Fetch for a list of locations in a csv file with lat, lon</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>&gt;&gt;<span class="w"> </span>GeoEPIC<span class="w"> </span>soil<span class="w"> </span>usda<span class="w"> </span>--fetch<span class="w"> </span><span class="o">{</span>list.csv<span class="o">}</span><span class="w"> </span>--out<span class="w"> </span><span class="o">{</span>out_dir<span class="o">}</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Fetch for crop sequence boundaries shape file.</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>&gt;&gt;<span class="w"> </span>GeoEPIC<span class="w"> </span>soil<span class="w"> </span>usda<span class="w"> </span>--fetch<span class="w"> </span><span class="o">{</span>aoi_csb.shp<span class="o">}</span><span class="w"> </span>--out<span class="w"> </span><span class="o">{</span>out_dir<span class="o">}</span>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Fetch and output soil files for a specific latitude and longitude</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>&gt;&gt;<span class="w"> </span>geo_epic<span class="w"> </span>soil<span class="w"> </span>usda<span class="w"> </span>--fetch<span class="w"> </span><span class="o">{</span>lat<span class="o">}</span><span class="w"> </span><span class="o">{</span>lon<span class="o">}</span><span class="w"> </span>--out<span class="w"> </span><span class="o">{</span>out_path<span class="o">}</span>
 </span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Fetch for a list of locations in a csv file with lat, lon</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>&gt;&gt;<span class="w"> </span>geo_epic<span class="w"> </span>soil<span class="w"> </span>usda<span class="w"> </span>--fetch<span class="w"> </span><span class="o">{</span>list.csv<span class="o">}</span><span class="w"> </span>--out<span class="w"> </span><span class="o">{</span>out_dir<span class="o">}</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Fetch for crop sequence boundaries shape file.</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>&gt;&gt;<span class="w"> </span>geo_epic<span class="w"> </span>soil<span class="w"> </span>usda<span class="w"> </span>--fetch<span class="w"> </span><span class="o">{</span>aoi_csb.shp<span class="o">}</span><span class="w"> </span>--out<span class="w"> </span><span class="o">{</span>out_dir<span class="o">}</span>
+</span></code></pre></div></p>
 <p><strong>Note:</strong> This command will write Soil IDs (mukeys) corresponding to each location as an attribute into the input file, when used with a CSV file or crop sequence boundary shapefile.</p>
 <p><strong>Processing ssurgo gdb file</strong>:</p>
 <p>To process a SSURGO GDB file and generate soil files for all unique soils contained in it, follow these steps. For instance, if you require soil files for Maryland, navigate to the 'State Database - Soils' section, and download the 'gSSURGO_MD.zip' file. Once the download is complete, extract the contents and place the GDB file in the 'soil' folder within your workspace. Use the following command to generate the soil files for all mukeys. </p>
 <p>Link: <a href="https://www.nrcs.usda.gov/resources/data-and-reports/gridded-soil-survey-geographic-gssurgo-database">https://www.nrcs.usda.gov/resources/data-and-reports/gridded-soil-survey-geographic-gssurgo-database</a></p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>&gt;&gt;<span class="w"> </span>GeoEPIC<span class="w"> </span>soil<span class="w"> </span>process_gdb<span class="w"> </span>-i<span class="w"> </span><span class="o">{</span>path/to/ssurgo.gdb<span class="o">}</span><span class="w"> </span>-o<span class="w"> </span><span class="o">{</span>out_dir<span class="o">}</span><span class="w"> </span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>&gt;&gt;<span class="w"> </span>geo_epic<span class="w"> </span>soil<span class="w"> </span>process_gdb<span class="w"> </span>-i<span class="w"> </span><span class="o">{</span>path/to/ssurgo.gdb<span class="o">}</span><span class="w"> </span>-o<span class="w"> </span><span class="o">{</span>out_dir<span class="o">}</span><span class="w"> </span>
 </span></code></pre></div>
 <h4 id="isric-soil-grids-data">ISRIC Soil Grids Data</h4>
 <p>The ISRIC Soil Grids 250 meters database is an advanced resource providing high-resolution global soil information. Managed by the International Soil Reference and Information Centre <strong>(ISRIC)</strong>, it uses state-of-the-art machine learning methods to map soil properties across the globe. The prediction models are based on soil profile observations and environmental covariates, including climate, land cover, and terrain morphology. SoilGrids offers soil properties at six standard depth intervals at 250 meters spatial resolution. For more detailed information, visit the <a href="https://www.isric.org/explore/soilgrids">ISRIC Soil Grids</a> page.</p>
 <p><img src="../assets/SoilGrids_banner_web.png" alt="soilgrid" width="70%"/></p>
 <p>To fetch and output soil files using the ISRIC Soil Grids 250 meters database, you can use the following commands.
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Fetch and output soil files for a specific latitude and longitude</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>&gt;&gt;<span class="w"> </span>GeoEPIC<span class="w"> </span>soil<span class="w"> </span>soilgrids<span class="w"> </span>--fetch<span class="w"> </span><span class="o">{</span>lat<span class="o">}</span><span class="w"> </span><span class="o">{</span>lon<span class="o">}</span><span class="w"> </span>--out<span class="w"> </span><span class="o">{</span>out_path<span class="o">}</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Fetch for a list of locations in a csv file with lat, lon, out_path columns</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>&gt;&gt;<span class="w"> </span>GeoEPIC<span class="w"> </span>soil<span class="w"> </span>soilgrids<span class="w"> </span>--fetch<span class="w"> </span><span class="o">{</span>list.csv<span class="o">}</span><span class="w"> </span>--out<span class="w"> </span><span class="o">{</span>column_name<span class="o">}</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Fetch and output soil files for a specific latitude and longitude</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>&gt;&gt;<span class="w"> </span>geo_epic<span class="w"> </span>soil<span class="w"> </span>soilgrids<span class="w"> </span>--fetch<span class="w"> </span><span class="o">{</span>lat<span class="o">}</span><span class="w"> </span><span class="o">{</span>lon<span class="o">}</span><span class="w"> </span>--out<span class="w"> </span><span class="o">{</span>out_path<span class="o">}</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Fetch for a list of locations in a csv file with lat, lon, out_path columns</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>&gt;&gt;<span class="w"> </span>geo_epic<span class="w"> </span>soil<span class="w"> </span>soilgrids<span class="w"> </span>--fetch<span class="w"> </span><span class="o">{</span>list.csv<span class="o">}</span><span class="w"> </span>--out<span class="w"> </span><span class="o">{</span>column_name<span class="o">}</span>
 </span></code></pre></div></p>
 <p>Once the tool finishes running, you should see files named {out_name}.SOL in your specified output directory. Open this file to verify that it contains the necessary soil data formatted correctly for use in the EPIC model.
 <br>
@@ -1097,10 +1097,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.56dfad97.min.js"></script>
+      <script src="../assets/javascripts/bundle.d6f25eb3.min.js"></script>
       
     
   </body>
