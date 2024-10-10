@@ -2,7 +2,7 @@
 
 For effective simulations using the **EPIC** model, it is essential to have land units that are characterized by uniform soil properties and consistent management practices. One way to achieve this for the USA is by utilizing the Crop Sequence Boundaries (CSB) dataset.
 
-## Crop Sequence Boundaries
+### Crop Sequence Boundaries
  The CSB dataset is derived by analyzing annual variations in the USDA's Cropland Data Layer (CDL). The CSB method involves identifying and demarcating the boundaries of agricultural fields that have maintained consistent crop rotation sequence over several years. 
 
 <img src="../assets/csb.png" alt="CSB" width="65%"/>
@@ -12,7 +12,7 @@ For effective simulations using the **EPIC** model, it is essential to have land
 USDA-NASS & Global Conservation Institute.
 Hunt, K. A., Abernethy, J., Beeson, P., Bowman, M., Wallander, S., & Williams, R.
 
-## Obtaining the CSB dataset
+### Obtaining the CSB dataset
 
 Visit the following URL: [https://www.nass.usda.gov/Research_and_Science/Crop-Sequence-Boundaries/index.php](https://www.nass.usda.gov/Research_and_Science/Crop-Sequence-Boundaries/index.php) to download the 'Crop Sequence Boundaries 2016-2023' dataset. After downloading, extract the dataset, which includes crop-field shapes for the entire USA. You can then use crop_csb tool to clip it to fit your Area of Interest (AOI). If your study focuses on Maryland, clip the shapefile for Maryland and save it.
  
