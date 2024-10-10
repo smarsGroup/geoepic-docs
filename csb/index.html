@@ -959,7 +959,7 @@
 <!-- ## Crop Sequence Boundaries -->
 
 <p>For effective simulations using the <strong>EPIC</strong> model, it is essential to have land units that are characterized by uniform soil properties and consistent management practices. One way to achieve this for the USA is by utilizing the Crop Sequence Boundaries (CSB) dataset.</p>
-<h2 id="crop-sequence-boundaries">Crop Sequence Boundaries</h2>
+<h3 id="crop-sequence-boundaries">Crop Sequence Boundaries</h3>
 <p>The CSB dataset is derived by analyzing annual variations in the USDA's Cropland Data Layer (CDL). The CSB method involves identifying and demarcating the boundaries of agricultural fields that have maintained consistent crop rotation sequence over several years. </p>
 <p><img src="../assets/csb.png" alt="CSB" width="65%"/></p>
 <!-- ![CSb](./assets/csb.png) -->
@@ -967,7 +967,7 @@
 <p><a href="https://www.nass.usda.gov/Education_and_Outreach/Reports,_Presentations_and_Conferences/reports/conferences/ICAS-2023/Crop%20Sequence%20Boundaries%20%28CSB%29%20Delineated%20Fields%20Using%20Remotely%20Sensed%20Crop%20Rotations.pdf">Crop Sequence Boundaries (CSB): Delineated Fields Using Remotely Sensed Crop Rotations</a>. 
 USDA-NASS &amp; Global Conservation Institute.
 Hunt, K. A., Abernethy, J., Beeson, P., Bowman, M., Wallander, S., &amp; Williams, R.</p>
-<h2 id="obtaining-the-csb-dataset">Obtaining the CSB dataset</h2>
+<h3 id="obtaining-the-csb-dataset">Obtaining the CSB dataset</h3>
 <p>Visit the following URL: <a href="https://www.nass.usda.gov/Research_and_Science/Crop-Sequence-Boundaries/index.php">https://www.nass.usda.gov/Research_and_Science/Crop-Sequence-Boundaries/index.php</a> to download the 'Crop Sequence Boundaries 2016-2023' dataset. After downloading, extract the dataset, which includes crop-field shapes for the entire USA. You can then use crop_csb tool to clip it to fit your Area of Interest (AOI). If your study focuses on Maryland, clip the shapefile for Maryland and save it.</p>
 <h4 id="clipping-the-csb-file-to-your-area-of-interest">Clipping the CSB file to your Area of Interest</h4>
 <p>GeoEPIC comes with a command-line tool to filter and clip the CSB file for your specific region of interest.
