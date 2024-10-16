@@ -18,7 +18,7 @@ Before starting the setup, ensure you have [`wget`](https://cloudcone.com/docs/a
         ```bash
         pip install git+https://github.com/smarsGroup/geo-epic.git
         ```
-    **Option 2: Install locally (for developers)**<br>
+    **Option 2: Install locally (for developers)** <br>
 
         This option is advisable only for developers.
         ```bash
