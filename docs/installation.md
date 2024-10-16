@@ -21,12 +21,15 @@ Before starting the setup, ensure you have [`wget`](https://cloudcone.com/docs/a
     **Option 2: Install locally (for developers)** <br>
 
         This option is advisable only for developers.
+
         ```bash
         git clone https://github.com/smarsGroup/geo-epic.git
         ```
+
         ```bash
         cd geo-epic
         ```
+        
         ```bash
         pip install .
         ```
