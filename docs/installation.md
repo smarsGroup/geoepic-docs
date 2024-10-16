@@ -15,11 +15,11 @@ Before starting the setup, ensure you have [`wget`](https://cloudcone.com/docs/a
 3. **Install the GeoEPIC Toolkit**  
    There are two options for installing the GeoEPIC Toolkit:
 
-    i. **Option 1: Install Directly from GitHub (recommended)**
+    **Option 1: Install Directly from GitHub (recommended)**
         ```bash
         pip install git+https://github.com/smarsGroup/geo-epic.git
         ```
-    ii. **Option 2: Install locally (for developers)**
+    **Option 2: Install locally (for developers)**
         This option is advisable only for developers.
         ```bash
         git clone https://github.com/smarsGroup/geo-epic.git
@@ -32,10 +32,9 @@ Before starting the setup, ensure you have [`wget`](https://cloudcone.com/docs/a
         ```
 
 4. **Contributing to GeoEPIC**
-  // write about creating issues, feature requests, etc.
-  i. **Creating Issues**
+  **Creating Issues**
   If you find any bugs, have any suggestions or feature requests, please create an issue on GitHub.
-  ii. **Pull Requests**
+  **Pull Requests**
   If you want to contribute to the code base, please create a new branch and send a pull request.
   Also, contact us for any kind of collaboration.
 
