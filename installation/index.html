@@ -913,28 +913,39 @@
 <h3 id="steps-to-set-up-the-geoepic-toolkit">Steps to Set Up the GeoEPIC Toolkit</h3>
 <ol>
 <li><strong>Create a virtual environment in conda</strong>
-    <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>geo_epic<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11.9
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>epic_env<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11.9
 </span></code></pre></div></li>
 <li>
 <p><strong>Activate the environment</strong>
-    <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>conda<span class="w"> </span>activate<span class="w"> </span>geo_epic
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>conda<span class="w"> </span>activate<span class="w"> </span>epic_env
 </span></code></pre></div></p>
 </li>
 <li>
 <p><strong>Install the GeoEPIC Toolkit</strong><br />
    There are two options for installing the GeoEPIC Toolkit:</p>
 <p>i. <strong>Option 1: Install Directly from GitHub (recommended)</strong>
-    <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/smarsGroup/GeoEPIC.git
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/smarsGroup/geo-epic.git
 </span></code></pre></div>
-i. <strong>Option 2: Install locally</strong>
+ii. <strong>Option 2: Install locally (for developers)</strong>
     This option is advisable only for developers.
-    <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/smarsGroup/GeoEPIC.git
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">cd</span><span class="w"> </span>GeoEPIC
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>pip<span class="w"> </span>install<span class="w"> </span>.
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/smarsGroup/geo-epic.git
+</span></code></pre></div>
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span>geo-epic
+</span></code></pre></div>
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>pip<span class="w"> </span>install<span class="w"> </span>.
 </span></code></pre></div></p>
 </li>
+<li>
+<p><strong>Contributing to GeoEPIC</strong>
+  // write about creating issues, feature requests, etc.
+  i. <strong>Creating Issues</strong>
+  If you find any bugs, have any suggestions or feature requests, please create an issue on GitHub.
+  ii. <strong>Pull Requests</strong>
+  If you want to contribute to the code base, please create a new branch and send a pull request.
+  Also, contact us for any kind of collaboration.</p>
+</li>
 </ol>
-<p>Now, the GeoEPIC toolkit is sucessfully installed on the <strong>geo_epic</strong> conda environment. All the commands and python API can be accessed via that conda environment. Happy coding!</p>
+<p>Now, the GeoEPIC toolkit is sucessfully installed on the <strong>epic_env</strong> conda environment. All the commands and python API can be accessed via that conda environment. Happy coding!</p>
 
 
 
