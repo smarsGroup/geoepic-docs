@@ -32,8 +32,10 @@ Before starting the setup, ensure you have [`wget`](https://cloudcone.com/docs/a
         ```
 
 4. **Contributing to GeoEPIC**
+
   **Creating Issues**
   If you find any bugs, have any suggestions or feature requests, please create an issue on GitHub.
+  
   **Pull Requests**
   If you want to contribute to the code base, please create a new branch and send a pull request.
   Also, contact us for any kind of collaboration.
