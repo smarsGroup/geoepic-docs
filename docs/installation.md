@@ -5,12 +5,11 @@ Before starting the setup, ensure you have [`wget`](https://cloudcone.com/docs/a
 
 1. **Create a virtual environment in conda**
     ```bash
-    conda create --name geo_epic python=3.11.9
-    
+    conda create --name epic_env python=3.11.9
     ```
 2. **Activate the environment**
     ```bash
-    conda activate geo_epic
+    conda activate epic_env
     ```
 
 3. **Install the GeoEPIC Toolkit**  
@@ -18,14 +17,26 @@ Before starting the setup, ensure you have [`wget`](https://cloudcone.com/docs/a
 
     i. **Option 1: Install Directly from GitHub (recommended)**
         ```bash
-        pip install git+https://github.com/smarsGroup/GeoEPIC.git
+        pip install git+https://github.com/smarsGroup/geo-epic.git
         ```
-    i. **Option 2: Install locally**
+    ii. **Option 2: Install locally (for developers)**
         This option is advisable only for developers.
         ```bash
-        git clone https://github.com/smarsGroup/GeoEPIC.git
-        cd GeoEPIC
+        git clone https://github.com/smarsGroup/geo-epic.git
+        ```
+        ```bash
+        cd geo-epic
+        ```
+        ```bash
         pip install .
         ```
 
-Now, the GeoEPIC toolkit is sucessfully installed on the **geo_epic** conda environment. All the commands and python API can be accessed via that conda environment. Happy coding!
+4. **Contributing to GeoEPIC**
+  // write about creating issues, feature requests, etc.
+  i. **Creating Issues**
+  If you find any bugs, have any suggestions or feature requests, please create an issue on GitHub.
+  ii. **Pull Requests**
+  If you want to contribute to the code base, please create a new branch and send a pull request.
+  Also, contact us for any kind of collaboration.
+
+Now, the GeoEPIC toolkit is sucessfully installed on the **epic_env** conda environment. All the commands and python API can be accessed via that conda environment. Happy coding!
