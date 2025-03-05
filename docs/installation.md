@@ -18,12 +18,12 @@ Before starting the setup, ensure you have [`wget`](https://cloudcone.com/docs/a
 
     i. **Option 1: Install Directly from GitHub (recommended)**
         ```bash
-        pip install git+https://github.com/smarsGroup/GeoEPIC.git
+        pip install git+https://github.com/smarsGroup/geo-epic.git
         ```
     i. **Option 2: Install locally**
         This option is advisable only for developers.
         ```bash
-        git clone https://github.com/smarsGroup/GeoEPIC.git
+        git clone https://github.com/smarsGroup/geo-epic.git
         cd GeoEPIC
         pip install .
         ```
