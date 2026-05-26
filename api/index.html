@@ -914,9 +914,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#known-code-limitations" class="md-nav__link">
+  <a href="#important-notes" class="md-nav__link">
     <span class="md-ellipsis">
-      Known code limitations
+      Important notes
     </span>
   </a>
   
@@ -1035,9 +1035,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#known-code-limitations" class="md-nav__link">
+  <a href="#important-notes" class="md-nav__link">
     <span class="md-ellipsis">
-      Known code limitations
+      Important notes
     </span>
   </a>
   
@@ -1122,10 +1122,6 @@
 <tr>
 <td><code>geo_epic workspace copy &lt;source&gt; [destination]</code></td>
 <td>Copy packaged utilities such as <code>epic_editor</code> into a workspace.</td>
-</tr>
-<tr>
-<td><code>geo_epic workspace listfiles -c config.yml</code></td>
-<td>Registered workspace file-list helper; see known limitations below.</td>
 </tr>
 </tbody>
 </table>
@@ -1236,12 +1232,9 @@
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kn">from</span> <span class="nn">geoEpic.spatial</span> <span class="kn">import</span> <span class="n">Daymet</span><span class="p">,</span> <span class="n">DEM</span><span class="p">,</span> <span class="n">SSURGO</span><span class="p">,</span> <span class="n">SoilGrids</span>
 </span></code></pre></div>
 <p>The top-level <code>geoEpic</code> package currently exposes the dispatcher, not the modeling classes. Import modeling classes from <code>geoEpic.core</code>.</p>
-<h2 id="known-code-limitations">Known code limitations</h2>
+<h2 id="important-notes">Important notes</h2>
 <ul>
 <li>Run the installed <code>geo_epic</code> command from an activated environment. Running source scripts directly can fail because helper scripts rely on package imports.</li>
-<li><code>geo_epic init -h</code> currently runs initialization instead of printing help because the init script has no argument parser.</li>
-<li>The default <code>geo_epic weather</code> dispatch currently points to <code>weather gee</code>, but the registered weather function is named <code>gee_w</code>; use explicit weather subcommands.</li>
-<li><code>geo_epic workspace listfiles</code> is registered but currently fails because the script imports the legacy <code>epic_lib</code> package name.</li>
 <li>The workspace template and <code>workspace prepare</code> currently disagree on <code>Area_of_Interest</code> versus <code>Fields_of_Interest</code>. For <code>workspace prepare</code>, the code expects <code>Fields_of_Interest</code>.</li>
 </ul>
 
