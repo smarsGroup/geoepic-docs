@@ -33,7 +33,6 @@ geo_epic utility gee -h
 | `geo_epic workspace post_process -c config.yml` | Run configured post-processing. |
 | `geo_epic workspace visualize -c config.yml` | Run configured visualization. |
 | `geo_epic workspace copy <source> [destination]` | Copy packaged utilities such as `epic_editor` into a workspace. |
-| `geo_epic workspace listfiles -c config.yml` | Registered workspace file-list helper; see known limitations below. |
 
 ### Soil
 
@@ -81,10 +80,7 @@ from geoEpic.spatial import Daymet, DEM, SSURGO, SoilGrids
 
 The top-level `geoEpic` package currently exposes the dispatcher, not the modeling classes. Import modeling classes from `geoEpic.core`.
 
-## Known code limitations
+## Important notes
 
 - Run the installed `geo_epic` command from an activated environment. Running source scripts directly can fail because helper scripts rely on package imports.
-- `geo_epic init -h` currently runs initialization instead of printing help because the init script has no argument parser.
-- The default `geo_epic weather` dispatch currently points to `weather gee`, but the registered weather function is named `gee_w`; use explicit weather subcommands.
-- `geo_epic workspace listfiles` is registered but currently fails because the script imports the legacy `epic_lib` package name.
 - The workspace template and `workspace prepare` currently disagree on `Area_of_Interest` versus `Fields_of_Interest`. For `workspace prepare`, the code expects `Fields_of_Interest`.
