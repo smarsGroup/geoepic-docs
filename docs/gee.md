@@ -39,7 +39,7 @@ The `global_scope` section contains general settings applicable to the entire da
 
 - **`time_range`**: Specifies the period for which the satellite data should be fetched.
 
-- **`variables`**: Lists the key variables to be extracted. These are typically satellite bands or derived products such as vegetation indices, or any other relevant parameters like tempurature etc.,
+- **`variables`**: Lists the key variables to be extracted. These are typically satellite bands or derived products such as vegetation indices, temperature, and other environmental variables.
 
 - **`resolution`**: Defines the spatial resolution (in meters) for the output data.
 
