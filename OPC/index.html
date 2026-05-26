@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Python Utility function to run EPIC model">
+        <meta name="description" content="Documentation for the GeoEPIC geospatial EPIC simulation toolkit">
       
       
       
@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../assets/logo.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.34">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.38">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.35f28582.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -72,6 +72,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#crop-management" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -631,6 +636,19 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Crop Management
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -641,6 +659,43 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#generate-opc-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generate OPC files
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edit-opc-files-in-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edit OPC files in Python
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -830,6 +885,34 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#generate-opc-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generate OPC files
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edit-opc-files-in-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edit OPC files in Python
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -847,11 +930,40 @@
   
 
 
-  <h1>Crop Management</h1>
-
-<!-- ## Agricultural Management  -->
-
-<p>OPC input files refers to the agricultural management practice files. Creating these files is not yet implemented in the toolkit. Refer to the epic user manual on how to prepare the management files.</p>
+<h1 id="crop-management">Crop Management</h1>
+<p>OPC files describe EPIC operation and crop-management schedules. They include planting, harvest, tillage, fertilizer, irrigation, and other management operations used during a simulation.</p>
+<p>GeoEPIC can copy existing OPC files into a workspace, edit them through the Python <code>OPC</code> class, or generate a year-wise OPC sequence from crop templates.</p>
+<h2 id="generate-opc-files">Generate OPC files</h2>
+<p>Use <code>geo_epic utility generate_opc</code> when you have a crop sequence CSV and a folder of crop OPC templates.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>geo_epic<span class="w"> </span>utility<span class="w"> </span>generate_opc<span class="w"> </span>-c<span class="w"> </span>./crop_data.csv<span class="w"> </span>-t<span class="w"> </span>./crop_templates<span class="w"> </span>-o<span class="w"> </span>./opc/files
+</span></code></pre></div>
+<p>The crop data CSV must include:</p>
+<ul>
+<li><code>crop_code</code> and <code>year</code></li>
+<li>optional <code>planting_date</code> and <code>harvest_date</code> in <code>YYYY-MM-DD</code> format</li>
+</ul>
+<p>The template folder must include:</p>
+<ul>
+<li><code>MAPPING</code>, a CSV mapping <code>crop_code</code> to template names</li>
+<li><code>FALLOW.OPC</code>, used when a crop code is missing from the mapping</li>
+<li>one OPC template file for each mapped crop name</li>
+</ul>
+<p><code>cdl_code</code> or <code>epic_code</code> columns are accepted and renamed internally to <code>crop_code</code>.</p>
+<h2 id="edit-opc-files-in-python">Edit OPC files in Python</h2>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kn">from</span> <span class="nn">geoEpic.io</span> <span class="kn">import</span> <span class="n">OPC</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">opc</span> <span class="o">=</span> <span class="n">OPC</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;./opc/continuous_corn.OPC&quot;</span><span class="p">,</span> <span class="n">start_year</span><span class="o">=</span><span class="mi">2020</span><span class="p">)</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">opc</span><span class="o">.</span><span class="n">edit_fertilizer_rate</span><span class="p">(</span><span class="n">rate</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="mi">2021</span><span class="p">)</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">opc</span><span class="o">.</span><span class="n">edit_crop_season</span><span class="p">(</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="n">new_planting_date</span><span class="o">=</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="n">new_harvest_date</span><span class="o">=</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="n">crop_code</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="p">)</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="n">opc</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;./opc/continuous_corn.OPC&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Refer to the EPIC user manual for complete OPC operation-code definitions and formatting details.</p>
 
 
 
@@ -944,10 +1056,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.56dfad97.min.js"></script>
+      <script src="../assets/javascripts/bundle.d6f25eb3.min.js"></script>
       
     
   </body>

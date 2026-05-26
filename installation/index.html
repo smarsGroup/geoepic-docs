@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Python Utility function to run EPIC model">
+        <meta name="description" content="Documentation for the GeoEPIC geospatial EPIC simulation toolkit">
       
       
       
@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../assets/logo.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.34">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.38">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.35f28582.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#steps-to-set-up-the-geoepic-toolkit" class="md-skip">
+        <a href="#installation" class="md-skip">
           Skip to content
         </a>
       
@@ -421,6 +421,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -449,6 +451,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -457,9 +461,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#steps-to-set-up-the-geoepic-toolkit" class="md-nav__link">
+  <a href="#option-1-local-clone-setup" class="md-nav__link">
     <span class="md-ellipsis">
-      Steps to Set Up the GeoEPIC Toolkit
+      Option 1: Local clone setup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#option-2-pip-install" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option 2: Pip install
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verify-the-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verify the installation
     </span>
   </a>
   
@@ -872,6 +894,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -880,9 +904,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#steps-to-set-up-the-geoepic-toolkit" class="md-nav__link">
+  <a href="#option-1-local-clone-setup" class="md-nav__link">
     <span class="md-ellipsis">
-      Steps to Set Up the GeoEPIC Toolkit
+      Option 1: Local clone setup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#option-2-pip-install" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option 2: Pip install
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verify-the-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verify the installation
     </span>
   </a>
   
@@ -906,35 +948,33 @@
   
 
 
-  <h1>Installation</h1>
-
-<!-- ## <strong>Installation</strong> -->
-<p>Before starting the setup, ensure you have <a href="https://cloudcone.com/docs/article/the-linux-wget-command/"><code>wget</code></a> and <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html"><code>conda</code></a> installed. <br> Follow the links for corresponding installation guides.</p>
-<h3 id="steps-to-set-up-the-geoepic-toolkit">Steps to Set Up the GeoEPIC Toolkit</h3>
-<ol>
-<li><strong>Create a virtual environment in conda</strong>
-    <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>geo_epic<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11.9
-</span></code></pre></div></li>
-<li>
-<p><strong>Activate the environment</strong>
-    <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>conda<span class="w"> </span>activate<span class="w"> </span>geo_epic
-</span></code></pre></div></p>
-</li>
-<li>
-<p><strong>Install the GeoEPIC Toolkit</strong><br />
-   There are two options for installing the GeoEPIC Toolkit:</p>
-<p>i. <strong>Option 1: Install Directly from GitHub (recommended)</strong>
-    <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/smarsGroup/GeoEPIC.git
+<h1 id="installation">Installation</h1>
+<p>GeoEPIC should be installed in a Conda environment because GDAL and related geospatial libraries are compiled dependencies. The current recommended Python version is 3.11.</p>
+<h2 id="option-1-local-clone-setup">Option 1: Local clone setup</h2>
+<p>Use this path when you have cloned the <code>geo-epic</code> repository and want the setup script to create or reuse the Conda environment. The script installs GeoEPIC from the local checkout with <code>python -m pip install .</code>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/smarsGroup/geo-epic.git
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>geo-epic
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>bash<span class="w"> </span>installation_scripts/setup.sh
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>conda<span class="w"> </span>activate<span class="w"> </span>epic_env
 </span></code></pre></div>
-i. <strong>Option 2: Install locally</strong>
-    This option is advisable only for developers.
-    <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/smarsGroup/GeoEPIC.git
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">cd</span><span class="w"> </span>GeoEPIC
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>pip<span class="w"> </span>install<span class="w"> </span>.
-</span></code></pre></div></p>
-</li>
-</ol>
-<p>Now, the GeoEPIC toolkit is sucessfully installed on the <strong>geo_epic</strong> conda environment. All the commands and python API can be accessed via that conda environment. Happy coding!</p>
+<p>If an older <code>epic_env</code> already exists with a different Python version, remove it first:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>conda<span class="w"> </span>env<span class="w"> </span>remove<span class="w"> </span>-n<span class="w"> </span>epic_env
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>bash<span class="w"> </span>installation_scripts/setup.sh
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>conda<span class="w"> </span>activate<span class="w"> </span>epic_env
+</span></code></pre></div>
+<h2 id="option-2-pip-install">Option 2: Pip install</h2>
+<p>Use this path when you want to manage the Conda environment yourself and install GeoEPIC directly from GitHub.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>epic_env<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11<span class="w"> </span>pip<span class="w"> </span>-y
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>conda<span class="w"> </span>activate<span class="w"> </span>epic_env
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span><span class="nv">gdal</span><span class="o">=</span><span class="m">3</span>.7<span class="w"> </span><span class="nv">pygmo</span><span class="o">=</span><span class="m">2</span>.19.5<span class="w"> </span>-y
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/smarsGroup/geo-epic.git
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>geo_epic<span class="w"> </span>init
+</span></code></pre></div>
+<h2 id="verify-the-installation">Verify the installation</h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>geo_epic
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import geoEpic, pygmo; print(geoEpic.__file__, pygmo.__version__)&quot;</span>
+</span></code></pre></div>
+<p>The command-line entry point is <code>geo_epic</code>. Run it from the activated Conda environment.</p>
 
 
 
@@ -1027,10 +1067,10 @@ i. <strong>Option 2: Install locally</strong>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.56dfad97.min.js"></script>
+      <script src="../assets/javascripts/bundle.d6f25eb3.min.js"></script>
       
     
   </body>

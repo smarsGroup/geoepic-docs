@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Python Utility function to run EPIC model">
+        <meta name="description" content="Documentation for the GeoEPIC geospatial EPIC simulation toolkit">
       
       
       
@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../assets/logo.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.34">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.38">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.35f28582.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#commands-available" class="md-skip">
+        <a href="#command-and-python-api-reference" class="md-skip">
           Skip to content
         </a>
       
@@ -796,6 +796,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -824,6 +826,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -832,47 +836,19 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commands-available" class="md-nav__link">
+  <a href="#command-modules" class="md-nav__link">
     <span class="md-ellipsis">
-      Commands Available
+      Command modules
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Commands Available">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#todo" class="md-nav__link">
-    <span class="md-ellipsis">
-      (ToDo)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#list-of-modules-and-functions" class="md-nav__link">
-    <span class="md-ellipsis">
-      List of Modules and Functions:
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="List of Modules and Functions:">
+    <nav class="md-nav" aria-label="Command modules">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#workspace" class="md-nav__link">
     <span class="md-ellipsis">
-      workspace
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#weather" class="md-nav__link">
-    <span class="md-ellipsis">
-      weather
+      Workspace
     </span>
   </a>
   
@@ -881,7 +857,25 @@
           <li class="md-nav__item">
   <a href="#soil" class="md-nav__link">
     <span class="md-ellipsis">
-      soil
+      Soil
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weather" class="md-nav__link">
+    <span class="md-ellipsis">
+      Weather
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Utility
     </span>
   </a>
   
@@ -890,7 +884,7 @@
           <li class="md-nav__item">
   <a href="#sites" class="md-nav__link">
     <span class="md-ellipsis">
-      sites
+      Sites
     </span>
   </a>
   
@@ -900,9 +894,22 @@
     </nav>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#python-imports" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python imports
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-code-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Known code limitations
+    </span>
+  </a>
   
 </li>
       
@@ -931,6 +938,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -939,47 +948,19 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commands-available" class="md-nav__link">
+  <a href="#command-modules" class="md-nav__link">
     <span class="md-ellipsis">
-      Commands Available
+      Command modules
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Commands Available">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#todo" class="md-nav__link">
-    <span class="md-ellipsis">
-      (ToDo)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#list-of-modules-and-functions" class="md-nav__link">
-    <span class="md-ellipsis">
-      List of Modules and Functions:
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="List of Modules and Functions:">
+    <nav class="md-nav" aria-label="Command modules">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#workspace" class="md-nav__link">
     <span class="md-ellipsis">
-      workspace
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#weather" class="md-nav__link">
-    <span class="md-ellipsis">
-      weather
+      Workspace
     </span>
   </a>
   
@@ -988,7 +969,25 @@
           <li class="md-nav__item">
   <a href="#soil" class="md-nav__link">
     <span class="md-ellipsis">
-      soil
+      Soil
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weather" class="md-nav__link">
+    <span class="md-ellipsis">
+      Weather
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Utility
     </span>
   </a>
   
@@ -997,7 +996,7 @@
           <li class="md-nav__item">
   <a href="#sites" class="md-nav__link">
     <span class="md-ellipsis">
-      sites
+      Sites
     </span>
   </a>
   
@@ -1007,9 +1006,22 @@
     </nav>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#python-imports" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python imports
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-code-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Known code limitations
+    </span>
+  </a>
   
 </li>
       
@@ -1031,45 +1043,172 @@
   
 
 
-  <h1>API</h1>
-
-<h2 id="commands-available">Commands Available</h2>
-<h3 id="todo">(ToDo)</h3>
-<p>GeoEPIC allows you to run various commands. The structure is as show below:</p>
-<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>GeoEPIC<span class="w"> </span><span class="o">{</span>module<span class="o">}</span><span class="w"> </span><span class="o">{</span>func<span class="o">}</span><span class="w"> </span>-options
+<h1 id="command-and-python-api-reference">Command and Python API Reference</h1>
+<p>GeoEPIC installs the <code>geo_epic</code> command. The general command shape is:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>geo_epic<span class="w"> </span><span class="o">[</span>module<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="k">function</span><span class="o">]</span><span class="w"> </span><span class="o">[</span>options<span class="o">]</span>
 </span></code></pre></div>
-example usage:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>GeoEPIC<span class="w"> </span>workspace<span class="w"> </span>new<span class="w"> </span>-w<span class="w"> </span>Test
-</span></code></pre></div></p>
-<h3 id="list-of-modules-and-functions">List of Modules and Functions:</h3>
-<h4 id="workspace"><strong>workspace</strong></h4>
+<p>Use <code>-h</code> on any command to inspect the current options:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>geo_epic<span class="w"> </span>workspace<span class="w"> </span>new<span class="w"> </span>-h
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>geo_epic<span class="w"> </span>soil<span class="w"> </span>usda<span class="w"> </span>-h
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>geo_epic<span class="w"> </span>utility<span class="w"> </span>gee<span class="w"> </span>-h
+</span></code></pre></div>
+<h2 id="command-modules">Command modules</h2>
+<h3 id="workspace">Workspace</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>geo_epic workspace new -n &lt;workspace&gt;</code></td>
+<td>Create a workspace from the packaged template.</td>
+</tr>
+<tr>
+<td><code>geo_epic workspace prepare -c config.yml</code></td>
+<td>Prepare workspace inputs from a configuration file.</td>
+</tr>
+<tr>
+<td><code>geo_epic workspace validate -c config.yml</code></td>
+<td>Validate site, weather, soil, and management inputs.</td>
+</tr>
+<tr>
+<td><code>geo_epic workspace run -c config.yml</code></td>
+<td>Run EPIC simulations for the configured sites.</td>
+</tr>
+<tr>
+<td><code>geo_epic workspace post_process -c config.yml</code></td>
+<td>Run configured post-processing.</td>
+</tr>
+<tr>
+<td><code>geo_epic workspace visualize -c config.yml</code></td>
+<td>Run configured visualization.</td>
+</tr>
+<tr>
+<td><code>geo_epic workspace copy &lt;source&gt; [destination]</code></td>
+<td>Copy packaged utilities such as <code>epic_editor</code> into a workspace.</td>
+</tr>
+<tr>
+<td><code>geo_epic workspace listfiles -c config.yml</code></td>
+<td>List workspace files.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="soil">Soil</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>geo_epic soil usda --fetch &lt;lat&gt; &lt;lon&gt; --out &lt;dir&gt;</code></td>
+<td>Fetch USDA SSURGO soil data and write <code>.SOL</code> files.</td>
+</tr>
+<tr>
+<td><code>geo_epic soil usda --fetch &lt;locations.csv&gt; --out &lt;dir&gt;</code></td>
+<td>Fetch SSURGO data for a CSV with location columns.</td>
+</tr>
+<tr>
+<td><code>geo_epic soil usda --fetch &lt;fields.shp&gt; --out &lt;dir&gt;</code></td>
+<td>Fetch SSURGO data for shapefile centroids.</td>
+</tr>
+<tr>
+<td><code>geo_epic soil process_gdb -c config.yml</code></td>
+<td>Process a local gSSURGO geodatabase using workspace config paths.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="weather">Weather</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>geo_epic weather daymet -start &lt;date&gt; -end &lt;date&gt; -aoi &lt;fields.shp&gt; -wd &lt;dir&gt;</code></td>
+<td>Download Daymet weather for an AOI.</td>
+</tr>
+<tr>
+<td><code>geo_epic weather windspeed -c config.yml</code></td>
+<td>Prepare NLDAS windspeed data from config.</td>
+</tr>
+<tr>
+<td><code>geo_epic weather download_daily -c config.yml</code></td>
+<td>Download daily weather grids from config.</td>
+</tr>
+<tr>
+<td><code>geo_epic weather daily2monthly -i &lt;input&gt; -o &lt;output&gt;</code></td>
+<td>Convert daily weather files to monthly summaries.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="utility">Utility</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>geo_epic utility gee &lt;config.yml&gt; --fetch &lt;lat&gt; &lt;lon&gt; --out &lt;file.csv&gt;</code></td>
+<td>Extract Earth Engine time series for one point.</td>
+</tr>
+<tr>
+<td><code>geo_epic utility gee &lt;config.yml&gt; --fetch &lt;fields.shp&gt; --out &lt;dir&gt;</code></td>
+<td>Extract Earth Engine time series for many fields.</td>
+</tr>
+<tr>
+<td><code>geo_epic utility crop_csb &lt;input.gdb&gt; &lt;output.shp&gt;</code></td>
+<td>Clip and process Crop Sequence Boundaries.</td>
+</tr>
+<tr>
+<td><code>geo_epic utility change_ee_project -n &lt;project&gt;</code></td>
+<td>Change the configured Earth Engine project.</td>
+</tr>
+<tr>
+<td><code>geo_epic utility generate_opc -c crop_data.csv -t crop_templates -o files</code></td>
+<td>Generate OPC files from crop data and templates.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sites">Sites</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>geo_epic sites generate -c config.yml</code></td>
+<td>Generate EPIC <code>.SIT</code> files from configured run information.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="python-imports">Python imports</h2>
+<p>Use the package submodules directly:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">geoEpic.core</span> <span class="kn">import</span> <span class="n">Site</span><span class="p">,</span> <span class="n">EPICModel</span><span class="p">,</span> <span class="n">Workspace</span><span class="p">,</span> <span class="n">PygmoProblem</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">from</span> <span class="nn">geoEpic.io</span> <span class="kn">import</span> <span class="n">ACY</span><span class="p">,</span> <span class="n">DGN</span><span class="p">,</span> <span class="n">DLY</span><span class="p">,</span> <span class="n">OPC</span><span class="p">,</span> <span class="n">SOL</span><span class="p">,</span> <span class="n">SIT</span><span class="p">,</span> <span class="n">CropCom</span><span class="p">,</span> <span class="n">ieParm</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kn">from</span> <span class="nn">geoEpic.spatial</span> <span class="kn">import</span> <span class="n">Daymet</span><span class="p">,</span> <span class="n">DEM</span><span class="p">,</span> <span class="n">SSURGO</span><span class="p">,</span> <span class="n">SoilGrids</span>
+</span></code></pre></div>
+<p>The top-level <code>geoEpic</code> package currently exposes the dispatcher, not the modeling classes. Import modeling classes from <code>geoEpic.core</code>.</p>
+<h2 id="known-code-limitations">Known code limitations</h2>
 <ul>
-<li><strong>new</strong>: Create a new workspace with a template structure.</li>
-<li><strong>prepare</strong>: Prepare the input files using config file.</li>
-<li><strong>run</strong>: Execute the simulations.</li>
-<li><strong>post_process</strong>: Process Output files from simulation runs.</li>
+<li>Run the installed <code>geo_epic</code> command from an activated environment. Running source scripts directly can fail because helper scripts rely on package imports.</li>
+<li>The default <code>geo_epic weather</code> dispatch currently points to <code>weather gee</code>, but the registered weather function is named <code>gee_w</code>; use explicit weather subcommands.</li>
+<li>The workspace template and <code>workspace prepare</code> currently disagree on <code>Area_of_Interest</code> versus <code>Fields_of_Interest</code>. For <code>workspace prepare</code>, the code expects <code>Fields_of_Interest</code>.</li>
 </ul>
-<h4 id="weather"><strong>weather</strong></h4>
-<ul>
-<li><strong>ee</strong>: </li>
-<li><strong>windspeed</strong>: </li>
-<li><strong>download_daily</strong>: Download daily weather data. </li>
-<li><strong>daily2monthly</strong>: Convert daily weather data to monthly.</li>
-</ul>
-<h4 id="soil"><strong>soil</strong></h4>
-<ul>
-<li><strong>usda</strong>:</li>
-<li><strong>isirc</strong>:</li>
-<li><strong>process_gdb</strong>: Process ssurgo gdb file.</li>
-</ul>
-<h4 id="sites"><strong>sites</strong></h4>
-<ul>
-<li><strong>process_foi</strong>: Process fields of interest file.  (TODO)</li>
-<li><strong>generate</strong>: Generate site files from processed data.</li>
-</ul>
-<p>For more details on each command and its options, use:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>GeoEPIC<span class="w"> </span><span class="o">{</span>module<span class="o">}</span><span class="w"> </span><span class="o">{</span>func<span class="o">}</span><span class="w"> </span>--help
-</span></code></pre></div></p>
 
 
 
@@ -1146,10 +1285,10 @@ example usage:
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.56dfad97.min.js"></script>
+      <script src="../assets/javascripts/bundle.d6f25eb3.min.js"></script>
       
     
   </body>

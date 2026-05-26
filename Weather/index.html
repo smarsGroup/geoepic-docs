@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Python Utility function to run EPIC model">
+        <meta name="description" content="Documentation for the GeoEPIC geospatial EPIC simulation toolkit">
       
       
       
@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../assets/logo.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.34">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.38">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.35f28582.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -634,35 +634,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#fetching-weather-data" class="md-nav__link">
+  <a href="#weather-preparation-commands" class="md-nav__link">
     <span class="md-ellipsis">
-      Fetching Weather Data
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Fetching Weather Data">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#using-gee-collections" class="md-nav__link">
-    <span class="md-ellipsis">
-      Using GEE collections
+      Weather preparation commands
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#from-daymet-and-nldas" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#earth-engine-time-series-extraction" class="md-nav__link">
     <span class="md-ellipsis">
-      From Daymet and NLDAS
+      Earth Engine time-series extraction
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -910,35 +895,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#fetching-weather-data" class="md-nav__link">
+  <a href="#weather-preparation-commands" class="md-nav__link">
     <span class="md-ellipsis">
-      Fetching Weather Data
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Fetching Weather Data">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#using-gee-collections" class="md-nav__link">
-    <span class="md-ellipsis">
-      Using GEE collections
+      Weather preparation commands
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#from-daymet-and-nldas" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#earth-engine-time-series-extraction" class="md-nav__link">
     <span class="md-ellipsis">
-      From Daymet and NLDAS
+      Earth Engine time-series extraction
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -964,82 +934,53 @@
 <!-- ![weather](./assets/fg.jpg) -->
 <p><img src="../assets/fg.jpg" alt="weather" width="90%"/></p>
 <p>Weather data is vital in providing essential environmental inputs that significantly influence crop growth and development. Reliable weather inputs ensure that agricultural simulations reflect realistic responses to climatic conditions. The EPIC model requires weather input files that detail daily and monthly climatic variables. Daily files provide day-to-day weather data, while monthly files summarize the average or total values per month. These files are crucial for driving the daily simulation processes in EPIC.</p>
-<h3 id="fetching-weather-data">Fetching Weather Data</h3>
-<p>GeoEPIC streamlines the process of fetching and organizing weather data essential for EPIC simulations. It supports the creation of weather input files from daymet, and also from sophisticated datasets available through Google Earth Engine. One can define a composite collection in the config file, detailing the specific variables to select from each data source, tailoring the dataset to meet the needs of their simulations. </p>
-<h4 id="using-gee-collections">Using GEE collections</h4>
-<p>GeoEPIC allows the integration of various weather and climate data sources on GEE. To explore the available datasets, visit <a href="https://developers.google.com/earth-engine/datasets/">Google Earth Engine's dataset catalog</a> and <a href="https://gee-community-catalog.org/projects/agera5_datasets/">GEE Community Catalog</a>. Private assets can also be uploaded to Earth Engine, to use them in combination with existing datasets. Below is an example of configuration file that can be used to create weather input files.</p>
-<p><strong>Example config files:</strong></p>
+<h2 id="weather-preparation-commands">Weather preparation commands</h2>
+<p>The current weather CLI is focused on preparing Daymet, NLDAS windspeed, daily grids, and monthly weather summaries.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Download Daymet weather for an AOI shapefile</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>geo_epic<span class="w"> </span>weather<span class="w"> </span>daymet<span class="w"> </span>-start<span class="w"> </span><span class="m">2002</span>-01-01<span class="w"> </span>-end<span class="w"> </span><span class="m">2022</span>-12-31<span class="w"> </span>-aoi<span class="w"> </span>./fields.shp<span class="w"> </span>-wd<span class="w"> </span>./weather
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Prepare NLDAS windspeed data using config.yml</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>geo_epic<span class="w"> </span>weather<span class="w"> </span>windspeed<span class="w"> </span>-c<span class="w"> </span>config.yml
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Download daily weather grids using config.yml</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>geo_epic<span class="w"> </span>weather<span class="w"> </span>download_daily<span class="w"> </span>-c<span class="w"> </span>config.yml
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># Convert daily weather files to monthly summaries</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>geo_epic<span class="w"> </span>weather<span class="w"> </span>daily2monthly<span class="w"> </span>-i<span class="w"> </span>./weather/Daily<span class="w"> </span>-o<span class="w"> </span>./weather/Monthly
+</span></code></pre></div>
+<p><code>windspeed</code> and <code>download_daily</code> read dates, output folders, and region settings from the workspace configuration. Inspect the command options with:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>geo_epic<span class="w"> </span>weather<span class="w"> </span>daymet<span class="w"> </span>-h
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>geo_epic<span class="w"> </span>weather<span class="w"> </span>windspeed<span class="w"> </span>-h
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>geo_epic<span class="w"> </span>weather<span class="w"> </span>download_daily<span class="w"> </span>-h
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>geo_epic<span class="w"> </span>weather<span class="w"> </span>daily2monthly<span class="w"> </span>-h
+</span></code></pre></div>
+<h2 id="earth-engine-time-series-extraction">Earth Engine time-series extraction</h2>
+<p>For arbitrary Earth Engine collections and derived variables, use the GEE utility command instead of the weather module:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>geo_epic<span class="w"> </span>utility<span class="w"> </span>gee<span class="w"> </span>daily_weather.yml<span class="w"> </span>--fetch<span class="w"> </span>./fields.shp<span class="w"> </span>--out<span class="w"> </span>./weather/gee_timeseries
+</span></code></pre></div>
+<p>GeoEPIC allows the integration of various weather and climate data sources on GEE. To explore available datasets, visit <a href="https://developers.google.com/earth-engine/datasets/">Google Earth Engine's dataset catalog</a> and <a href="https://gee-community-catalog.org/projects/agera5_datasets/">GEE Community Catalog</a>. Private assets can also be uploaded to Earth Engine.</p>
+<p><strong>Example AgERA5 configuration:</strong></p>
 <ul>
 <li><strong>using AgERA5</strong></li>
 </ul>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Global parameters</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">global_scope</span><span class="p">:</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">time_range</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;2002-01-01&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;2022-12-31&#39;</span><span class="p p-Indicator">]</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">variables</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;srad&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;tmax&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;tmin&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;prcp&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;rh&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;ws&#39;</span><span class="p p-Indicator">]</span><span class="w">  </span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">resolution</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">9600</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1"># Specify Earth Engine (EE) collections and their respective variables</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">collections</span><span class="p">:</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="nt">AgEra5</span><span class="p">:</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="nt">collection</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;projects/climate-engine-pro/assets/ce-ag-era5/daily&#39;</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="nt">variables</span><span class="p">:</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">      </span><span class="nt">srad</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">b(&#39;Solar_Radiation_Flux&#39;)</span><span class="w"> </span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">      </span><span class="nt">tmax</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">b(&#39;Temperature_Air_2m_Max_24h&#39;) - 273.15</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">      </span><span class="nt">tmin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">b(&#39;Temperature_Air_2m_Min_24h&#39;) - 273.15</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">      </span><span class="nt">prcp</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">b(&#39;Precipitation_Flux&#39;)</span><span class="w"> </span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">      </span><span class="nt">rh</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">b(&#39;Relative_Humidity_2m_06h&#39;)</span>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">      </span><span class="nt">ws</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">b(&#39;Wind_Speed_10m_Mean&#39;)</span>
-</span></code></pre></div>
-<!-- 
-- **Daymet and Gridmet**
-
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a># Global parameters
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>global_scope:
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  time_range: [&#39;2002-01-01&#39;, &#39;2022-12-31&#39;]
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  variables: [&#39;srad&#39;, &#39;tmax&#39;, &#39;tmin&#39;, &#39;prcp&#39;, &#39;rh&#39;, &#39;ws&#39;]  
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>  resolution: 1000
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a># Specify Earth Engine (EE) collections and their respective variables
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>collections:
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>  daymet:
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    collection: NASA/ORNL/DAYMET_V4
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    variables:
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>      srad: b(&#39;srad&#39;) 
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>      tmax: b(&#39;tmax&#39;) 
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>      tmin: b(&#39;tmin&#39;) 
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>      prcp: b(&#39;prcp&#39;) 
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
-</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>  gridmet:
-</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>    collection: &#39;IDAHO_EPSCOR/GRIDMET&#39;
-</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>    variables:
-</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>      ws: b(&#39;vs&#39;)
-</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>
-</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a># Derived variables
-</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>derived_variables:
-</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>  rh: &#39;100 * exp((17.625 * {srad}) / (243.04 + {srad})) / exp((17.625 * {tmax}) / (243.04 + {tmax}))&#39;
-</span></code></pre></div>
- -->
-
-<p><strong>Using the config file to get data:</strong></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a># Fetch and output weather input files for a specific latitude and longitude
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>&gt;&gt; GeoEPIC weather config.yml --fetch {lat} {lon} --out {out_path}
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a># Fetch for a list of locations in a csv file with lat, lon, out_path columns
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>&gt;&gt; GeoEPIC weather config.yml --fetch {list.csv} --out {column_name}
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a># Fetch for crop sequence boundaries shape file.
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>&gt;&gt; GeoEPIC weather config.yml --fetch {aoi_csb.shp} --out {out_dir}
-</span></code></pre></div>
-<p><strong>Note:</strong> This command will write weather grid IDs corresponding to each location as an attribute into the input file, when used with a CSV file or crop sequence boundary shapefile.</p>
-<h4 id="from-daymet-and-nldas">From Daymet and NLDAS</h4>
-<p>To fetch weather data for a specific latitude and longitude using the Daymet dataset, start by downloading the windspeed data from the NLDAS dataset and saving it to the specified directory. Afterward, fetch the other required weather data from the Daymet dataset.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># To download windspeed data, use the following command</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>&gt;&gt;<span class="w"> </span>GeoEPIC<span class="w"> </span>weather<span class="w"> </span>windspeed<span class="w"> </span>-bbox<span class="w"> </span>&lt;bounding_box&gt;<span class="w"> </span>-start<span class="w"> </span>&lt;start_date&gt;<span class="w"> </span>-end<span class="w"> </span>&lt;end_date&gt;<span class="w"> </span>-out<span class="w"> </span><span class="s1">&#39;./weather&#39;</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># To fetch and output weather input files for a specific latitude and longitude</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>&gt;&gt;<span class="w"> </span>GeoEPIC<span class="w"> </span>weather<span class="w"> </span>daymet<span class="w"> </span>--fetch<span class="w"> </span><span class="o">{</span>lat<span class="o">}</span><span class="w"> </span><span class="o">{</span>lon<span class="o">}</span><span class="w"> </span>-start<span class="w"> </span>&lt;start_date&gt;<span class="w"> </span>-end<span class="w"> </span>&lt;end_date&gt;<span class="w"> </span>--out<span class="w"> </span><span class="s1">&#39;./weather&#39;</span>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Global parameters</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nt">global_scope</span><span class="p">:</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">time_range</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;2002-01-01&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;2022-12-31&#39;</span><span class="p p-Indicator">]</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">variables</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;srad&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;tmax&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;tmin&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;prcp&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;rh&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;ws&#39;</span><span class="p p-Indicator">]</span><span class="w">  </span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="nt">resolution</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">9600</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1"># Specify Earth Engine (EE) collections and their respective variables</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="nt">collections</span><span class="p">:</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">  </span><span class="nt">AgEra5</span><span class="p">:</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="nt">collection</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;projects/climate-engine-pro/assets/ce-ag-era5/daily&#39;</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="nt">variables</span><span class="p">:</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">      </span><span class="nt">srad</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">b(&#39;Solar_Radiation_Flux&#39;)</span><span class="w"> </span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">      </span><span class="nt">tmax</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">b(&#39;Temperature_Air_2m_Max_24h&#39;) - 273.15</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">      </span><span class="nt">tmin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">b(&#39;Temperature_Air_2m_Min_24h&#39;) - 273.15</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">      </span><span class="nt">prcp</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">b(&#39;Precipitation_Flux&#39;)</span><span class="w"> </span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">      </span><span class="nt">rh</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">b(&#39;Relative_Humidity_2m_06h&#39;)</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">      </span><span class="nt">ws</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">b(&#39;Wind_Speed_10m_Mean&#39;)</span>
 </span></code></pre></div>
 <!-- 
 
@@ -1139,10 +1080,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.56dfad97.min.js"></script>
+      <script src="../assets/javascripts/bundle.d6f25eb3.min.js"></script>
       
     
   </body>

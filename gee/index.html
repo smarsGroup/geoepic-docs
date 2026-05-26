@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Python Utility function to run EPIC model">
+        <meta name="description" content="Documentation for the GeoEPIC geospatial EPIC simulation toolkit">
       
       
       
@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../assets/logo.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.34">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.38">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.35f28582.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -1051,21 +1051,21 @@
 <hr />
 <h3 id="2-fetching-the-data">2. Fetching the Data</h3>
 <p>You can use the following command-line interface to fetch time-series of required variables from Google Earth Engine into a CSV file:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>geo_epic<span class="w"> </span>gee<span class="w"> </span>&lt;config-file&gt;<span class="w"> </span>--fetch<span class="w"> </span>&lt;roi&gt;<span class="w"> </span>--out<span class="w"> </span>&lt;output-path&gt;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>geo_epic<span class="w"> </span>utility<span class="w"> </span>gee<span class="w"> </span>&lt;config-file&gt;<span class="w"> </span>--fetch<span class="w"> </span>&lt;roi&gt;<span class="w"> </span>--out<span class="w"> </span>&lt;output-path&gt;
 </span></code></pre></div>
 <p>The region of interest for fetching data can be provided in three formats:</p>
 <ul>
 <li><strong>Latitude and Longitude:</strong> Use direct coordinates [latitude, longitude]
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>geo_epic<span class="w"> </span>gee<span class="w"> </span>./landsat_ndvi.yml<span class="w"> </span>--fetch<span class="w"> </span><span class="m">40</span>.5677<span class="w"> </span><span class="m">98</span>.5505<span class="w"> </span>--out<span class="w"> </span>./out/sample.csv
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>geo_epic<span class="w"> </span>utility<span class="w"> </span>gee<span class="w"> </span>./landsat_ndvi.yml<span class="w"> </span>--fetch<span class="w"> </span><span class="m">40</span>.5677<span class="w"> </span><span class="m">98</span>.5505<span class="w"> </span>--out<span class="w"> </span>./out/sample.csv
 </span></code></pre></div></li>
 <li>
 <p><strong>Shapefile (.shp):</strong> A shapefile containing the polygons of interest. It must contain a SiteID or FieldID column. The data will be stored in the name of FieldID or SiteID. Fetches one file for each polygon.
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>geo_epic<span class="w"> </span>gee<span class="w"> </span>./landsat_ndvi.yml<span class="w"> </span>--fetch<span class="w"> </span>./input/region.shp<span class="w"> </span>--out<span class="w"> </span>./out
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>geo_epic<span class="w"> </span>utility<span class="w"> </span>gee<span class="w"> </span>./landsat_ndvi.yml<span class="w"> </span>--fetch<span class="w"> </span>./input/region.shp<span class="w"> </span>--out<span class="w"> </span>./out
 </span></code></pre></div></p>
 </li>
 <li>
 <p><strong>CSV File:</strong> A CSV file must contain a SiteID or FieldID column. Additionally, if using a CSV, it must include lat, lon columns. The data will be stored in the name of FieldID or SiteID.
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>geo_epic<span class="w"> </span>gee<span class="w"> </span>./landsat_ndvi.yml<span class="w"> </span>--fetch<span class="w"> </span>./input/region.csv<span class="w"> </span>--out<span class="w"> </span>./out
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>geo_epic<span class="w"> </span>utility<span class="w"> </span>gee<span class="w"> </span>./landsat_ndvi.yml<span class="w"> </span>--fetch<span class="w"> </span>./input/region.csv<span class="w"> </span>--out<span class="w"> </span>./out
 </span></code></pre></div></p>
 </li>
 </ul>
@@ -1161,10 +1161,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.56dfad97.min.js"></script>
+      <script src="../assets/javascripts/bundle.d6f25eb3.min.js"></script>
       
     
   </body>
