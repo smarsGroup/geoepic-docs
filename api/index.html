@@ -846,6 +846,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Initialization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#workspace" class="md-nav__link">
     <span class="md-ellipsis">
       Workspace
@@ -958,6 +967,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Initialization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#workspace" class="md-nav__link">
     <span class="md-ellipsis">
       Workspace
@@ -1053,6 +1071,21 @@
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>geo_epic<span class="w"> </span>utility<span class="w"> </span>gee<span class="w"> </span>-h
 </span></code></pre></div>
 <h2 id="command-modules">Command modules</h2>
+<h3 id="initialization">Initialization</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>geo_epic init</code></td>
+<td>Initialize GeoEPIC metadata in the user home directory.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="workspace">Workspace</h3>
 <table>
 <thead>
@@ -1092,7 +1125,7 @@
 </tr>
 <tr>
 <td><code>geo_epic workspace listfiles -c config.yml</code></td>
-<td>List workspace files.</td>
+<td>Registered workspace file-list helper; see known limitations below.</td>
 </tr>
 </tbody>
 </table>
@@ -1206,7 +1239,9 @@
 <h2 id="known-code-limitations">Known code limitations</h2>
 <ul>
 <li>Run the installed <code>geo_epic</code> command from an activated environment. Running source scripts directly can fail because helper scripts rely on package imports.</li>
+<li><code>geo_epic init -h</code> currently runs initialization instead of printing help because the init script has no argument parser.</li>
 <li>The default <code>geo_epic weather</code> dispatch currently points to <code>weather gee</code>, but the registered weather function is named <code>gee_w</code>; use explicit weather subcommands.</li>
+<li><code>geo_epic workspace listfiles</code> is registered but currently fails because the script imports the legacy <code>epic_lib</code> package name.</li>
 <li>The workspace template and <code>workspace prepare</code> currently disagree on <code>Area_of_Interest</code> versus <code>Fields_of_Interest</code>. For <code>workspace prepare</code>, the code expects <code>Fields_of_Interest</code>.</li>
 </ul>
 
