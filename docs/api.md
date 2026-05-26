@@ -1,37 +1,82 @@
+# Command and Python API Reference
 
-## Commands Available
-### (ToDo)
-
-GeoEPIC allows you to run various commands. The structure is as show below:
+GeoEPIC installs the `geo_epic` command. The general command shape is:
 
 ```bash
-GeoEPIC {module} {func} -options
+geo_epic [module] [function] [options]
 ```
-example usage:
-```bash
-GeoEPIC workspace new -w Test
-```
-### List of Modules and Functions:
 
-#### **workspace**
-  - **new**: Create a new workspace with a template structure.
-  - **prepare**: Prepare the input files using config file.
-  - **run**: Execute the simulations.
-  - **post_process**: Process Output files from simulation runs.
-#### **weather**
-  - **ee**: 
-  - **windspeed**: 
-  - **download_daily**: Download daily weather data. 
-  - **daily2monthly**: Convert daily weather data to monthly.
-#### **soil**
-  - **usda**:
-  - **isirc**:
-  - **process_gdb**: Process ssurgo gdb file.
-#### **sites**
-  - **process_foi**: Process fields of interest file.  (TODO)
-  - **generate**: Generate site files from processed data.
+Use `-h` on any command to inspect the current options:
 
-For more details on each command and its options, use:
 ```bash
-GeoEPIC {module} {func} --help
+geo_epic workspace new -h
+geo_epic soil usda -h
+geo_epic utility gee -h
 ```
+
+## Command modules
+
+### Workspace
+
+| Command | Purpose |
+| --- | --- |
+| `geo_epic workspace new -n <workspace>` | Create a workspace from the packaged template. |
+| `geo_epic workspace prepare -c config.yml` | Prepare workspace inputs from a configuration file. |
+| `geo_epic workspace validate -c config.yml` | Validate site, weather, soil, and management inputs. |
+| `geo_epic workspace run -c config.yml` | Run EPIC simulations for the configured sites. |
+| `geo_epic workspace post_process -c config.yml` | Run configured post-processing. |
+| `geo_epic workspace visualize -c config.yml` | Run configured visualization. |
+| `geo_epic workspace copy <source> [destination]` | Copy packaged utilities such as `epic_editor` into a workspace. |
+| `geo_epic workspace listfiles -c config.yml` | List workspace files. |
+
+### Soil
+
+| Command | Purpose |
+| --- | --- |
+| `geo_epic soil usda --fetch <lat> <lon> --out <dir>` | Fetch USDA SSURGO soil data and write `.SOL` files. |
+| `geo_epic soil usda --fetch <locations.csv> --out <dir>` | Fetch SSURGO data for a CSV with location columns. |
+| `geo_epic soil usda --fetch <fields.shp> --out <dir>` | Fetch SSURGO data for shapefile centroids. |
+| `geo_epic soil process_gdb -c config.yml` | Process a local gSSURGO geodatabase using workspace config paths. |
+
+### Weather
+
+| Command | Purpose |
+| --- | --- |
+| `geo_epic weather daymet -start <date> -end <date> -aoi <fields.shp> -wd <dir>` | Download Daymet weather for an AOI. |
+| `geo_epic weather windspeed -c config.yml` | Prepare NLDAS windspeed data from config. |
+| `geo_epic weather download_daily -c config.yml` | Download daily weather grids from config. |
+| `geo_epic weather daily2monthly -i <input> -o <output>` | Convert daily weather files to monthly summaries. |
+
+### Utility
+
+| Command | Purpose |
+| --- | --- |
+| `geo_epic utility gee <config.yml> --fetch <lat> <lon> --out <file.csv>` | Extract Earth Engine time series for one point. |
+| `geo_epic utility gee <config.yml> --fetch <fields.shp> --out <dir>` | Extract Earth Engine time series for many fields. |
+| `geo_epic utility crop_csb <input.gdb> <output.shp>` | Clip and process Crop Sequence Boundaries. |
+| `geo_epic utility change_ee_project -n <project>` | Change the configured Earth Engine project. |
+| `geo_epic utility generate_opc -c crop_data.csv -t crop_templates -o files` | Generate OPC files from crop data and templates. |
+
+### Sites
+
+| Command | Purpose |
+| --- | --- |
+| `geo_epic sites generate -c config.yml` | Generate EPIC `.SIT` files from configured run information. |
+
+## Python imports
+
+Use the package submodules directly:
+
+```python
+from geoEpic.core import Site, EPICModel, Workspace, PygmoProblem
+from geoEpic.io import ACY, DGN, DLY, OPC, SOL, SIT, CropCom, ieParm
+from geoEpic.spatial import Daymet, DEM, SSURGO, SoilGrids
+```
+
+The top-level `geoEpic` package currently exposes the dispatcher, not the modeling classes. Import modeling classes from `geoEpic.core`.
+
+## Known code limitations
+
+- Run the installed `geo_epic` command from an activated environment. Running source scripts directly can fail because helper scripts rely on package imports.
+- The default `geo_epic weather` dispatch currently points to `weather gee`, but the registered weather function is named `gee_w`; use explicit weather subcommands.
+- The workspace template and `workspace prepare` currently disagree on `Area_of_Interest` versus `Fields_of_Interest`. For `workspace prepare`, the code expects `Fields_of_Interest`.

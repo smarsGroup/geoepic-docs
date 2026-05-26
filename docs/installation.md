@@ -1,31 +1,43 @@
-<!-- ## <strong>Installation</strong> -->
-Before starting the setup, ensure you have [`wget`](https://cloudcone.com/docs/article/the-linux-wget-command/) and [`conda`](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html) installed. <br> Follow the links for corresponding installation guides.
+# Installation
 
-### Steps to Set Up the GeoEPIC Toolkit
+GeoEPIC should be installed in a Conda environment because GDAL and related geospatial libraries are compiled dependencies. The current recommended Python version is 3.11.
 
-1. **Create a virtual environment in conda**
-    ```bash
-    conda create --name geo_epic python=3.11.9
-    
-    ```
-2. **Activate the environment**
-    ```bash
-    conda activate geo_epic
-    ```
+## Option 1: Local clone setup
 
-3. **Install the GeoEPIC Toolkit**  
-   There are two options for installing the GeoEPIC Toolkit:
+Use this path when you have cloned the `geo-epic` repository and want the setup script to create or reuse the Conda environment. The script installs GeoEPIC from the local checkout with `python -m pip install .`.
 
-    i. **Option 1: Install Directly from GitHub (recommended)**
-        ```bash
-        pip install git+https://github.com/smarsGroup/geo-epic.git
-        ```
-    i. **Option 2: Install locally**
-        This option is advisable only for developers.
-        ```bash
-        git clone https://github.com/smarsGroup/geo-epic.git
-        cd GeoEPIC
-        pip install .
-        ```
+```bash
+git clone https://github.com/smarsGroup/geo-epic.git
+cd geo-epic
+bash installation_scripts/setup.sh
+conda activate epic_env
+```
 
-Now, the GeoEPIC toolkit is sucessfully installed on the **geo_epic** conda environment. All the commands and python API can be accessed via that conda environment. Happy coding!
+If an older `epic_env` already exists with a different Python version, remove it first:
+
+```bash
+conda env remove -n epic_env
+bash installation_scripts/setup.sh
+conda activate epic_env
+```
+
+## Option 2: Pip install
+
+Use this path when you want to manage the Conda environment yourself and install GeoEPIC directly from GitHub.
+
+```bash
+conda create -n epic_env python=3.11 pip -y
+conda activate epic_env
+conda install -c conda-forge gdal=3.7 pygmo=2.19.5 -y
+python -m pip install git+https://github.com/smarsGroup/geo-epic.git
+geo_epic init
+```
+
+## Verify the installation
+
+```bash
+geo_epic
+python -c "import geoEpic, pygmo; print(geoEpic.__file__, pygmo.__version__)"
+```
+
+The command-line entry point is `geo_epic`. Run it from the activated Conda environment.

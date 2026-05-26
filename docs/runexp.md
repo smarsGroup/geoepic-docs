@@ -1,43 +1,53 @@
 # Running the Model
-#### <ToDo\>
 
-``` py
-from geoEpic import Site, EpicModel
-
-# initialise a site object
-site = Site(opc = './continuous_corn.OPC',  # management file
-            dly = './1123455.DLY',          # daily weather file 
-            sol = './Andisol.SOL',          # soil file
-            sit = './1.SIT')                # site file
-
-
-# initialise the EPIC model
-model = EpicModel(path = './model/EPIC2301dt20230820')
-model.setup(start_year = 2014, duration = 10)
-model.set_output_types(['ACY', 'DGN'])
-
-# run the simulation for the site
-model.run(site)
-
-# get the required outputs
-acy = model.outputs['ACY']
-model.close()
-```
-
-
-**Loading from config files:**
+GeoEPIC exposes the modeling classes from `geoEpic.core` and output readers from `geoEpic.io`.
 
 ```python
-site = Site.from_config(lat = , lon = , config = './config.yml')
-model = EpicModel.from_config(config = './config.yml')
+from geoEpic.core import Site, EPICModel
+from geoEpic.io import ACY, DGN
 
+# Initialize a site object.
+site = Site(
+    opc="./continuous_corn.OPC",
+    dly="./1123455.DLY",
+    sol="./Andisol.SOL",
+    sit="./1.SIT",
+)
+
+
+# Initialize the EPIC model.
+model = EPICModel(path="./model/EPIC2301dt20230820")
+model.setup({
+    "start_year": 2014,
+    "duration": 10,
+    "output_dir": "./output",
+    "log_dir": "./log",
+})
+model.set_output_types(["ACY", "DGN"])
+
+# Run the simulation for the site.
 model.run(site)
+
+# Read output files.
+acy = ACY(site.outputs["ACY"])
+dgn = DGN(site.outputs["DGN"])
 model.close()
 ```
 
-**Example config file:**
+## Loading from config files
+
+The configuration workflow is best handled by `Workspace`, which reads `config.yml`, filters `run_info`, runs EPIC, and applies optional post-processing routines.
+
+```python
+from geoEpic.core import Workspace
+
+workspace = Workspace("./config.yml")
+workspace.run()
+```
+
+Example model section:
+
 ```yaml
-# Model details
 EPICModel: ./model/EPIC2301dt20230820
 start_year: 1995
 duration: 25
@@ -46,11 +56,12 @@ output_types:
   - DGN  # Daily general output file
 log_dir: ./log
 output_dir: ./output
-
 ```
 
-- To edit the OPC, SOL or files in the epic model folder, you could use the epic_editor. the following command will copy the epiceditor in to your current folder.
+To copy packaged utilities such as the EPIC editor into the current workspace, use:
 
 ```bash
->> GeoEPIC workspace add epic_editor
+geo_epic workspace copy epic_editor
 ```
+
+Known limitation: import modeling classes from `geoEpic.core`. The top-level `geoEpic` package currently exposes dispatcher helpers rather than `Site`, `EPICModel`, or `Workspace`.

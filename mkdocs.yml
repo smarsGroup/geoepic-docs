@@ -1,7 +1,7 @@
 ### Site metadata ###
 
 site_name: GeoEPIC
-site_description: Python Utility function to run EPIC model
+site_description: Documentation for the GeoEPIC geospatial EPIC simulation toolkit
 site_url: https://smarsgroup.github.io/geoepic-docs/
 
 repo_url: https://github.com/smarsGroup/geo-epic

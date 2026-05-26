@@ -1,57 +1,42 @@
 
 # GeoEPIC
 
-###<strong>A toolkit for geospatial Crop Simulations</strong>
+### A toolkit for geospatial crop simulations
 
+<img src="./assets/Yield_MD.png" alt="Maryland yield example" width="90%"/>
 
-<img src="./assets/Yield_MD.png" alt="Maryland_Yield" width="90%"/> 
-<!-- ### <strong>Overview</strong> -->
+GeoEPIC expands the EPIC crop simulation model for geospatial experiments across fields, counties, and larger study regions. It combines EPIC input preparation, weather and soil utilities, workspace execution, output readers, and calibration helpers for workflows that need to run the same model over many sites.
 
-This package expands the capabilities of the **EPIC crop simulation model**, to simulate crop growth and development across large geographies, such as entire states or counties by leveraging openly availabe remote sensing products and geospatial databases. Additionally, the toolkit features a unique calibration module that allows fine-tuning of model parameters to reflect specific local conditions or experimental results. This toolkit allows researchers to assess crop production potential, management scenarios and risks at broader scales, informing decision-making for sustainable agricultural practices.
+## Quick Install
 
-
-
-<!-- !['Maryland_Yield'](./assets/Yield_MD.png) -->
-
-### <strong>Installation</strong>
-
-Before starting the setup, ensure you have [`wget`](https://cloudcone.com/docs/article/the-linux-wget-command/) and [`conda`](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html) installed. Follow the links for corresponding installation guides. Find the detailed instructions in the setup section.
+GeoEPIC is easiest to install with Conda because it depends on compiled geospatial packages such as GDAL. The recommended environment uses Python 3.11.
 
 ```bash
-conda create --name epic_env python=3.11.9
-
-```
-```bash
+conda create -n epic_env python=3.11 pip -y
 conda activate epic_env
+conda install -c conda-forge gdal=3.7 pygmo=2.19.5 -y
+python -m pip install git+https://github.com/smarsGroup/geo-epic.git
+geo_epic init
 ```
-```bash
-pip install git+https://github.com/smarsGroup/geo-epic.git
-```
 
-<!-- 
-### <strong>Getting Started</strong>
+For the local-clone setup script and troubleshooting notes, see the [installation guide](installation.md).
 
-To begin using GeoEPIC:
+## Typical Workflow
 
-1. **Installation**: Follow the [installation guide](installation.md) to set up the toolkit in your Python environment.
-2. **Data Preparation**: Prepare your geospatial datasets, including soil, weather, and crop management data.
-3. **Running Simulations**: Use the provided modules to set up and execute your EPIC model simulations.
-4. **Result Analysis**: Analyze simulation outputs with built-in tools or export data for external analysis.
+1. Install GeoEPIC and initialize metadata with `geo_epic init`.
+2. Create a workspace with `geo_epic workspace new -n Test`.
+3. Prepare soil, weather, site, and management inputs in the workspace.
+4. Run simulations with `geo_epic workspace run -c config.yml`.
+5. Read ACY, DGN, and other EPIC outputs through `geoEpic.io`.
+6. Calibrate selected model parameters with `geoEpic.core.PygmoProblem` when observed data are available.
 
-For detailed instructions, visit the [Getting Started](index.md) section. -->
+## Use Cases
 
-### <strong>Use Cases</strong>
-<!-- 
-GeoEPIC has been adopted in various research projects and integrated into several tools: -->
+- Crop yield forecasting over large geographies.
+- Soil, weather, and management input preparation for EPIC.
+- Remote-sensing driven model evaluation and calibration.
+- Post-processing EPIC output files for maps, tables, and diagnostics.
 
-- **Crop Yield Forecasting**: Used in studies predicting crop yields under different climate scenarios.
-- **Sustainable Agriculture Tools**: Incorporated into platforms promoting sustainable farming practices.
-<!-- - **Academic Research**: Featured in numerous [publications](#) exploring geospatial crop modeling.
-- **Collaborations**:
-  - **University of Agriculture**: Partnership focusing on soil health and crop productivity.
-  - **AgriTech Solutions**: Integration of GeoEPIC into precision agriculture tools. -->
+## Contributors
 
-
-### <strong>Contributors</strong>
-
-- Bharath Irigireddy, Varaprasad Bandaru, Sachin Velmurgan, Rohit Nandan, SMaRS Group
+Bharath Irigireddy, Varaprasad Bandaru, Sachin Velmurgan, Rohit Nandan, SMaRS Group.

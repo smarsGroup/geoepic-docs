@@ -64,21 +64,21 @@ Derived variables are calculated from the raw bands using mathematical expressio
 You can use the following command-line interface to fetch time-series of required variables from Google Earth Engine into a CSV file:
 
 ```bash
-geo_epic gee <config-file> --fetch <roi> --out <output-path>
+geo_epic utility gee <config-file> --fetch <roi> --out <output-path>
 ```
 
 The region of interest for fetching data can be provided in three formats:
 
    - **Latitude and Longitude:** Use direct coordinates [latitude, longitude]
 ```bash
-geo_epic gee ./landsat_ndvi.yml --fetch 40.5677 98.5505 --out ./out/sample.csv
+geo_epic utility gee ./landsat_ndvi.yml --fetch 40.5677 98.5505 --out ./out/sample.csv
 ```
    - **Shapefile (.shp):** A shapefile containing the polygons of interest. It must contain a SiteID or FieldID column. The data will be stored in the name of FieldID or SiteID. Fetches one file for each polygon.
 ```bash
-geo_epic gee ./landsat_ndvi.yml --fetch ./input/region.shp --out ./out
+geo_epic utility gee ./landsat_ndvi.yml --fetch ./input/region.shp --out ./out
 ```
 
    - **CSV File:** A CSV file must contain a SiteID or FieldID column. Additionally, if using a CSV, it must include lat, lon columns. The data will be stored in the name of FieldID or SiteID.
 ```bash
-geo_epic gee ./landsat_ndvi.yml --fetch ./input/region.csv --out ./out
+geo_epic utility gee ./landsat_ndvi.yml --fetch ./input/region.csv --out ./out
 ```
